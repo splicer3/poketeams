@@ -3,23 +3,30 @@
 import { usePokemonContext } from '@/context/PokemonContext';
 import { typeColors } from '@/lib/utils';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import Pokedex from 'pokedex-promise-v2';
 import Image from 'next/image';
+import { usePokedex } from '@/context/PokedexContext';
 
 const PokemonType = () => {
     const { selectedPokemon, setSelectedPokemon } = usePokemonContext();
     const [types, setTypes] = useState([""])
-    const P = useMemo(() => new Pokedex(), []);
+    const P = usePokedex();
 
-    useEffect (() => {
-        const fetchPokemonTypes = async () => {
-            const pokemon = await P.getPokemonByName(selectedPokemon);
-            const types = pokemon.types.map(item => item.type.name);
-            setTypes(types);
-        }
+    const firstUpdate = useRef(true);
+    useLayoutEffect(() => {
+      if (firstUpdate.current) {
+        firstUpdate.current = false;
+        return;
+      }
+      const fetchPokemonTypes = async () => {
+            
+        const pokemon = await P.getPokemonByName(selectedPokemon);
+        const types = pokemon.types.map(item => item.type.name);
+        setTypes(types);
+    }
         fetchPokemonTypes();
-    }, [selectedPokemon, P])
+    }, [selectedPokemon, P]);
 
     return (
         <div className="capitalize">

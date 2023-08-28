@@ -1,12 +1,13 @@
 "use client"
 
+import { usePokedex } from '@/context/PokedexContext';
 import { usePokemonContext } from '@/context/PokemonContext';
 import { Combobox } from '@headlessui/react';
 import Pokedex from 'pokedex-promise-v2';
 import { useEffect, useMemo, useState } from 'react';
 
 const PokemonCombo = () => {
-    const P = useMemo(() => new Pokedex(), []);
+    const P = usePokedex();
     const [pokemonList, setPokemonList] = useState(['']);
     const { selectedPokemon, setSelectedPokemon } = usePokemonContext();
     const [query, setQuery] = useState('');

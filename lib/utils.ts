@@ -18,4 +18,6 @@ export const typeColors: {[key: string]: string} = {
     steel: '#B8B8D0',
     fairy: '#EE99AC',
   };
+
+  
   
