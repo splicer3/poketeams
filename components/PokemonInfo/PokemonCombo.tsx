@@ -3,7 +3,6 @@
 import { usePokedex } from '@/context/PokedexContext';
 import { usePokemonContext } from '@/context/PokemonContext';
 import { Combobox } from '@headlessui/react';
-import Pokedex from 'pokedex-promise-v2';
 import { useEffect, useMemo, useState } from 'react';
 
 const PokemonCombo = () => {

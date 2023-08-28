@@ -1,3 +1,5 @@
+import PokeAPI from "pokedex-promise-v2";
+
 export const typeColors: {[key: string]: string} = {
     normal: '#A8A878',
     fire: '#F08030',
@@ -18,6 +20,21 @@ export const typeColors: {[key: string]: string} = {
     steel: '#B8B8D0',
     fairy: '#EE99AC',
   };
+
+export const Statistics = ["Hp", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
+
+export const fetchAbilityDescription = async (abilityName: string, P:PokeAPI) => {
+  try {
+    const ability = await P.getAbilityByName(abilityName);
+    if (ability.name === 'overgrow') {
+      return ability.effect_entries[0].effect;
+    }
+    return ability.effect_entries[1].effect;
+  } catch (error) {
+    console.error(`Error fetching ability description for ${abilityName}:`, error);
+    return '';
+  }
+}
 
   
   
