@@ -35,7 +35,7 @@ const PokemonStats = () => {
     <div>
       {stats ? (
         <div>
-        <h2 className="font-medium">
+        <h2 className="font-medium text-center sm:text-start">
             Stats
         </h2>
           <div>

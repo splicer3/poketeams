@@ -21,15 +21,15 @@ export const typeColors: {[key: string]: string} = {
     fairy: '#EE99AC',
   };
 
-export const Statistics = ["Hp", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
+export const Statistics = ["HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
 
 export const fetchAbilityDescription = async (abilityName: string, P:PokeAPI) => {
   try {
     const ability = await P.getAbilityByName(abilityName);
-    if (ability.name === 'overgrow') {
-      return ability.effect_entries[0].effect;
+    if (ability.name === 'overgrow' || ability.name === 'frisk') {
+      return ability.effect_entries[0].short_effect;
     }
-    return ability.effect_entries[1].effect;
+    return ability.effect_entries[1].short_effect;
   } catch (error) {
     console.error(`Error fetching ability description for ${abilityName}:`, error);
     return '';

@@ -34,10 +34,13 @@ const PokemonAbilities = () => {
 
   return (
     <div className="flex flex-col gap-4">
+      <h2 className="font-medium text-center sm:text-start">
+        {abilities[1] ? "Abilities" : "Ability"}
+      </h2>
       {abilities.map((item, i) => (
         <div key={i} className="w-64">
           <h2
-            className={clsx('text-gray-800', 'capitalize', item.isHidden && 'font-bold')}
+            className={clsx('text-gray-800', 'capitalize', item.isHidden && 'underline')}
           >
             {item.ability}
           </h2>
