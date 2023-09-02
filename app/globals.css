@@ -25,3 +25,23 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.placeholder {
+  animation: loading 1.5s infinite alternate;
+  background: linear-gradient(90deg, transparent 25%, #f3f3f3 50%, transparent 75%);
+  background-size: 200% 100%;
+  display: inline-block;
+  text-align: left;
+  color: transparent;
+  white-space: nowrap;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+

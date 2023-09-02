@@ -32,20 +32,33 @@ const PokemonType = () => {
 
     return (
         <div className="capitalize">
-            {!isLoading && types.map((item, i) => (
-                  <div
-                  key={i}
-                  style={{
-                    backgroundColor: typeColors[item] || 'gray', // Use the color from the mapping, or gray if not found
-                    display: 'inline-block',
-                    padding: '8px',
-                    borderRadius: '4px',
-                    margin: '4px',
-                  }}
+            {!isLoading ? 
+            types.map((item, i) => (
+                <div
+                key={i}
+                style={{
+                  backgroundColor: typeColors[item] || 'gray', // Use the color from the mapping, or gray if not found
+                  display: 'inline-block',
+                  padding: '8px',
+                  borderRadius: '4px',
+                  margin: '4px',
+                }}
                 >
                 <Image src={`/TypeIcons/${item}.svg`} alt={item} width={50} height={50}/>
                 </div>
-            ))}
+            )) : 
+            <div
+            style={{
+              backgroundColor: 'gray',
+              display: 'inline-block',
+              padding: '8px',
+              borderRadius: '4px',
+              margin: '4px',
+            }}
+            >
+            <Image src={`/TypeIcons/normal.svg`} alt="Normal" width={50} height={50}/>
+            </div>
+            }
         </div>
     )
 }

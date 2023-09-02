@@ -3,6 +3,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { PokedexProvider } from '@/context/PokedexContext'
+import SupabaseProvider from '@/providers/SupabaseProvider'
+import UserProvider from '@/providers/UserProvider'
+import ModalProvider from '@/providers/ModalProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +22,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-100 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 -z-10`}>
+      <SupabaseProvider>
+      <UserProvider>
         <PokedexProvider>
           <PokemonProvider>
-            {children}
+                <ModalProvider/>
+                  {children}
           </PokemonProvider>
-        </PokedexProvider>
+          </PokedexProvider>
+        </UserProvider>
+        </SupabaseProvider>
       </body>
     </html>
   )

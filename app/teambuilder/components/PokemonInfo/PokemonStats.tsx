@@ -31,6 +31,30 @@ const PokemonStats = () => {
     return `rgb(${red},${green},0)`;
   };
 
+  const renderStatPills = () => {
+    return Array.from({ length: 6 }).map((_, i) => (
+      <div
+        key={i}
+        className={`
+          text-white
+          p-2
+          my-2
+          rounded-full
+          flex
+          justify-center
+          items-center
+          w-40
+          bg-gray-500
+        `}
+      >
+        <div className="flex justify-between w-full">
+        <span>{Statistics[i]}</span>
+        <span>0</span>
+        </div>
+      </div>
+    ));
+  };
+
   return (
     <div>
       {stats ? (
@@ -64,7 +88,9 @@ const PokemonStats = () => {
           </div>
         </div>
       ) : (
-        <p>Loading stats...</p>
+      <div className="">
+        {renderStatPills()}
+      </div>
       )}
     </div>
   );

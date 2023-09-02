@@ -30,7 +30,7 @@ const PokemonSprite = () => {
   return (
     <div className="flex flex-col items-center gap-4">
       {!isLoading && artworkURL ? (
-        <Image src={artworkURL} alt={`Artwork of ${selectedPokemon}`} width={256} height={256}/>
+        <Image src={artworkURL} alt={`Artwork of ${selectedPokemon}`} width={256} height={256} priority/>
       ) : (
         <Dna width={256} height={256} />
       )}
