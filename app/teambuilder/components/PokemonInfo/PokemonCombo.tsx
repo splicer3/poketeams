@@ -15,7 +15,7 @@ const PokemonCombo = () => {
     useEffect(() => {
         const fetchPokemonList = async () => {
           try {
-            const list = await P.getPokemonsList();
+            const list = (await P.getPokemonsList());
             const names = list.results.map(item => item.name);
             setPokemonList(names);
             setSelectedPokemon(names[0]);

@@ -1,33 +1,31 @@
 "use client"
-import React, { useEffect, useState } from 'react';
-import { usePokedex } from '@/context/PokedexContext';
+import React from 'react';
 import { usePokemonContext } from '@/context/PokemonContext';
-import PokeAPI from 'pokedex-promise-v2';
 import { Statistics } from '@/lib/utils';
 
 const PokemonStats = () => {
-  const P = usePokedex();
-  const { selectedPokemon } = usePokemonContext();
-  const [stats, setStats] = useState<PokeAPI.StatElement[] | null>(null);
-
-  useEffect(() => {
-    const fetchPokemonStats = async () => {
-      try {
-        const pokemon = await P.getPokemonByName(selectedPokemon);
-        setStats(pokemon.stats);
-      } catch (error) {
-        console.error('Error fetching Pokémon stats:', error);
-        setStats(null);
-      }
-    };
-
-    fetchPokemonStats();
-  }, [selectedPokemon, P]);
+  const { pokemonData, isLoading } = usePokemonContext();
 
   const calculateColor = (value: number) => {
-    // Calculate a color gradient from red to green based on value
-    const red = Math.round((255 * (70 - value*0.6)) / 50);
-    const green = Math.round((255 * value*0.6) / 100);
+    value = Math.min(value, 180);  // Treat any value above 180 as 180
+    let red = 255;
+    let green = 0;
+  
+    if (value <= 50) {
+      // The color is mostly red
+      red = 255;
+      green = Math.round((value / 50) * 85);
+    } else if (value <= 85) {
+      // The color is getting greener
+      red = Math.round(255 - ((value - 50) / 60) * 255);
+      green = 50 + Math.round(((value - 50) / 35) * 170);
+    } else if (value <= 180) {
+      // The color is deep green and increasing brightness
+      red = 0;
+      green = 100 + Math.round(((value - 85) / 95) * 255);
+      if (green > 210) green = 210;  // Ensure green does not exceed 255
+    }
+  
     return `rgb(${red},${green},0)`;
   };
 
@@ -56,14 +54,14 @@ const PokemonStats = () => {
   };
 
   return (
-    <div>
-      {stats ? (
+<div>
+      {!isLoading && pokemonData ? (
         <div>
         <h2 className="font-medium text-center sm:text-start">
             Stats
         </h2>
           <div>
-            {stats.map((stat, i) => (
+            {pokemonData.stats.map((stat, i) => (
               <div
                 key={i}
                 className={`

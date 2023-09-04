@@ -2,7 +2,7 @@ import { PokemonProvider } from '@/context/PokemonContext'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { PokedexProvider } from '@/context/PokedexContext'
+import { PokedexProvider, usePokedex } from '@/context/PokedexContext'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
@@ -25,10 +25,8 @@ export default function RootLayout({
       <SupabaseProvider>
       <UserProvider>
         <PokedexProvider>
-          <PokemonProvider>
                 <ModalProvider/>
                   {children}
-          </PokemonProvider>
           </PokedexProvider>
         </UserProvider>
         </SupabaseProvider>
