@@ -36,7 +36,7 @@ const PokemonAbilities = () => {
   }, [selectedPokemon, P]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 bg-white bg-opacity-30 dark:bg-gray-800 p-6 rounded-xl w-full">
       <h2 className="font-medium text-center sm:text-start">
         {abilities[1] ? "Abilities" : "Ability"}
       </h2>
@@ -54,9 +54,7 @@ const PokemonAbilities = () => {
       ))}
       </>
       :
-      <span className="placeholder w-64 h-64 rounded-2xl">
-
-      </span>
+      <span className="placeholder w-64 h-64 rounded-2xl"></span>
     }
     </div>
   );

@@ -23,6 +23,8 @@ export const typeColors: {[key: string]: string} = {
 
 export const Statistics = ["HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
 
+export const pokemonTypes = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
+
 export const fetchAbilityDescription = async (abilityName: string, P:PokeAPI) => {
   try {
     const ability = await P.getAbilityByName(abilityName);

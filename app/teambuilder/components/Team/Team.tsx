@@ -32,7 +32,7 @@ const PokemonTeamBuilder = () => {
   };
 
   return (
-    <div className="flex flex-col gap-20 dark:bg-gray-800 dark:text-white p-4 rounded-md">
+    <div className="flex flex-col gap-20 bg-white bg-opacity-30 dark:bg-gray-800 dark:text-white p-6 w-full rounded-xl">
       <div>
         <h2 className="font-medium">Current Team</h2>
         <button
@@ -42,13 +42,13 @@ const PokemonTeamBuilder = () => {
             !selectedPokemon || selectedTeam.length >= 6 || selectedTeam.includes(pokemonData!)
               ? 'bg-gray-500 cursor-not-allowed'
               : 'bg-blue-500 hover:bg-blue-600'
-          } text-white rounded-md`}
+          } text-white rounded-xl`}
         >
           Add to Team
         </button>
         <div className="grid grid-cols-2 gap-2 mt-4">
           {selectedTeam.map(pokemon => (
-            <div key={pokemon.id} className="flex justify-between items-center bg-gray-200 dark:bg-gray-600 p-2 rounded-md">
+            <div key={pokemon.id} className="flex justify-between items-center bg-gray-200 dark:bg-gray-600 p-2 rounded-xl">
               <span
                 onClick={() => setSelectedPokemon(pokemonData!.name)}
                 className="capitalize pr-3 cursor-pointer"
@@ -71,7 +71,7 @@ const PokemonTeamBuilder = () => {
             selectedTeam.length < 1
               ? 'bg-gray-500 cursor-not-allowed'
               : 'bg-green-500 hover:bg-green-600'
-          } text-white rounded-md`}
+          } text-white rounded-xl`}
         >
           Submit Team
         </button>

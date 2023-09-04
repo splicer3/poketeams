@@ -38,14 +38,14 @@ const PokemonCombo = () => {
             <div className="relative w-full px-20">
               <Combobox.Input
                 onChange={event => setQuery(event.target.value)}
-                className="w-full p-2 pl-4 pr-10 capitalize rounded-md border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg"
+                className="w-full p-2 pl-4 pr-10 capitalize rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg"
               />
               <Combobox.Button className="absolute inset-y-0 right-0 mr-[5.75rem] flex items-center">
                 <MdCatchingPokemon className="h-5 w-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"/>
               </Combobox.Button>
             </div>
             <Combobox.Options
-              className="mt-2 max-h-40 w-auto bg-white dark:bg-gray-950 capitalize border border-gray-300 dark:border-gray-700 rounded-md shadow-lg overflow-y-auto z-10"
+              className="mt-2 max-h-40 w-auto bg-white dark:bg-gray-950 capitalize border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg overflow-y-auto z-10"
             >
               {filteredPokemon.map(pokemon => (
                 <Combobox.Option

@@ -54,13 +54,13 @@ const PokemonStats = () => {
   };
 
   return (
-<div>
+<div className="flex flex-col items-center justify-center w-full">
       {!isLoading && pokemonData ? (
-        <div>
+        <div className="flex  flex-col items-center justify-center bg-white bg-opacity-30 dark:bg-gray-800 py-6 w-full rounded-xl">
         <h2 className="font-medium text-center sm:text-start">
             Stats
         </h2>
-          <div>
+          <div className="grid grid-cols-2 grid-rows-3 gap-4 px-2 place-items-center w-full">
             {pokemonData.stats.map((stat, i) => (
               <div
                 key={i}
@@ -71,7 +71,9 @@ const PokemonStats = () => {
                 rounded-3xl
                 flex
                 justify-between
+                flex-shrink-0
                 w-40
+                max-w-full
               `}
                 style={{
                     backgroundColor: calculateColor(stat.base_stat)
@@ -86,7 +88,7 @@ const PokemonStats = () => {
           </div>
         </div>
       ) : (
-      <div className="">
+      <div className="grid grid-cols-2 grid-rows-3 gap-4 place-items-center w-full">
         {renderStatPills()}
       </div>
       )}
