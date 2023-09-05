@@ -9,21 +9,15 @@ import { fetchAbilityDescription } from '@/lib/utils';
 
 const PokemonAbilities = () => {
   const P = usePokedex();
-  const { selectedPokemon } = usePokemonContext();
+  const { selectedPokemon, pokemonData } = usePokemonContext();
   const [abilities, setAbilities] = useState<Ability[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const firstUpdate = useRef(true);
-  useLayoutEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
+  useEffect(() => {
     const fetchPokemonAbilities = async () => {
       setIsLoading(true);
-      const pokemon = await P.getPokemonByName(selectedPokemon);
       const fetchedAbilities = await Promise.all(
-        pokemon.abilities.map(async (item: PokeAPI.AbilityElement) => ({
+        pokemonData!.abilities.map(async (item: PokeAPI.AbilityElement) => ({
           ability: item.ability.name,
           abilityDescription: await fetchAbilityDescription(item.ability.name, P),
           isHidden: item.is_hidden,
@@ -32,11 +26,13 @@ const PokemonAbilities = () => {
       setAbilities(fetchedAbilities);
       setIsLoading(false);
     };
-    fetchPokemonAbilities();
-  }, [selectedPokemon, P]);
+    if (pokemonData) {
+      fetchPokemonAbilities();
+    }
+  }, [pokemonData, P]);
 
   return (
-    <div className="flex flex-col gap-4 bg-white bg-opacity-30 dark:bg-gray-800 p-6 rounded-xl w-full">
+    <div className="flex flex-col gap-4 cool-box p-6 w-full">
       <h2 className="font-medium text-center sm:text-start">
         {abilities[1] ? "Abilities" : "Ability"}
       </h2>

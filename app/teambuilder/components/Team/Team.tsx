@@ -6,10 +6,15 @@ import useAuthModal from '@/hooks/useAuthModal';
 import { useUser } from '@/hooks/useUser';
 import TeamAnalyzer from './TeamAnalyzer';
 import { Pokemon } from 'pokedex-promise-v2';
+import { useTeam } from '@/context/TeamContext';
+import PokemonSprite from '../PokemonInfo/PokemonSprite';
+import { processName, typeColors } from '@/lib/utils';
+import clsx from 'clsx';
+import Button from '@/components/Button';
 
 const PokemonTeamBuilder = () => {
   const { selectedPokemon, setSelectedPokemon, pokemonData } = usePokemonContext();
-  const [selectedTeam, setSelectedTeam] = useState<Pokemon[]>([]);
+  const { selectedTeam, setSelectedTeam } = useTeam();
   const authModal = useAuthModal();
   const { user } = useUser();
 
@@ -32,49 +37,64 @@ const PokemonTeamBuilder = () => {
   };
 
   return (
-    <div className="flex flex-col gap-20 bg-white bg-opacity-30 dark:bg-gray-800 dark:text-white p-6 w-full rounded-xl">
-      <div>
-        <h2 className="font-medium">Current Team</h2>
-        <button
-          onClick={handleAddToTeam}
-          disabled={!selectedPokemon || selectedTeam.length >= 6 || selectedTeam.includes(pokemonData!)}
-          className={`px-4 py-2 mt-2 ${
-            !selectedPokemon || selectedTeam.length >= 6 || selectedTeam.includes(pokemonData!)
-              ? 'bg-gray-500 cursor-not-allowed'
-              : 'bg-blue-500 hover:bg-blue-600'
-          } text-white rounded-xl`}
-        >
-          Add to Team
-        </button>
-        <div className="grid grid-cols-2 gap-2 mt-4">
-          {selectedTeam.map(pokemon => (
-            <div key={pokemon.id} className="flex justify-between items-center bg-gray-200 dark:bg-gray-600 p-2 rounded-xl">
-              <span
-                onClick={() => setSelectedPokemon(pokemonData!.name)}
-                className="capitalize pr-3 cursor-pointer"
-              >
-                {pokemon.name}
-              </span>
-              <button
-                onClick={() => handleRemoveFromTeam(pokemon)}
-                className="text-red-500 hover:text-red-700 cursor-pointer"
-              >
-                <TbPokeballOff />
-              </button>
-            </div>
-          ))}
+    <div className="flex flex-col 2xl:flex-row gap-10 2xl:gap-20 w-full sm:w-[90%] dark:text-white p-6 rounded-xl cool-box">
+      <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center">
+          <h2 className="font-medium">Current Team</h2>
+          <Button
+            onClick={handleAddToTeam}
+            disabled={!selectedPokemon || selectedTeam.length >= 6 || selectedTeam.includes(pokemonData!)}
+            secondary
+          >
+            Add current Pokémon
+          </Button>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6 mt-4">
+            {selectedTeam.map(pokemon => (
+              <div key={pokemon.id}
+                  className={clsx(`flex flex-col gap-1 justify-center items-center
+                  bg-gray-200 dark:bg-gray-600
+                  hover:bg-gradient-to-b from-[${typeColors[pokemon.types[0].type.name] + "80"}]
+                  px-4 py-2 rounded-xl cursor-pointer shadow-lg hover:shadow-xl hover:scale-105 transition`,
+                  pokemon.types[1] ? `to-[${typeColors[pokemon.types[1].type.name] + "80"}]` : "to-gray-200"
+                  )}
+                  onClick={() => {
+                    setSelectedPokemon(pokemon.name)
+                  }}
+                  >
+                    <PokemonSprite width={40} height={40} pokemon={pokemon}/>
+                    <span
+                      className="capitalize px-8"
+                    >
+                      {processName(pokemon.name)}
+                    </span>
+                    <button
+                      onClick={() => handleRemoveFromTeam(pokemon)}
+                      className="text-red-500 hover:text-red-700 cursor-pointer"
+                    >
+                      <TbPokeballOff />
+                    </button>
+              </div>
+            ))}
+          </div>
         </div>
-        <button
-          onClick={handleSubmitTeam}
-          disabled={selectedTeam.length < 1}
-          className={`mt-4 px-4 py-2 ${
-            selectedTeam.length < 1
-              ? 'bg-gray-500 cursor-not-allowed'
-              : 'bg-green-500 hover:bg-green-600'
-          } text-white rounded-xl`}
-        >
-          Submit Team
-        </button>
+        <div className="flex w-full justify-around gap-4">
+          <Button
+            onClick={handleSubmitTeam}
+            disabled={selectedTeam.length < 1}
+            confirm
+            fullWidth
+          >
+            Submit as new Team
+          </Button>
+          <Button
+            onClick={handleSubmitTeam}
+            disabled={selectedTeam.length < 1}
+            
+            fullWidth
+          >
+            Update Team
+          </Button>
+        </div>
       </div>
       <TeamAnalyzer team={selectedTeam}/>
     </div>

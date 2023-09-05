@@ -2,14 +2,16 @@
 
 import { usePokedex } from '@/context/PokedexContext';
 import { usePokemonContext } from '@/context/PokemonContext';
+import { typeColors } from '@/lib/utils';
 import { Combobox } from '@headlessui/react';
+import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
 import { MdCatchingPokemon } from "react-icons/md"
 
 const PokemonCombo = () => {
     const P = usePokedex();
     const [pokemonList, setPokemonList] = useState(['']);
-    const { selectedPokemon, setSelectedPokemon } = usePokemonContext();
+    const { selectedPokemon, setSelectedPokemon, pokemonData } = usePokemonContext();
     const [query, setQuery] = useState('');
 
     useEffect(() => {
@@ -38,7 +40,9 @@ const PokemonCombo = () => {
             <div className="relative w-full px-20">
               <Combobox.Input
                 onChange={event => setQuery(event.target.value)}
-                className="w-full p-2 pl-4 pr-10 capitalize rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg"
+                className={clsx(`w-full p-2 pl-4 pr-10 capitalize rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-lg`,
+                  pokemonData?.types[0].type ? `focus:ring-[${typeColors[pokemonData.types[0].type.name]}]` : "focus:ring-teal-500"
+                )}
               />
               <Combobox.Button className="absolute inset-y-0 right-0 mr-[5.75rem] flex items-center">
                 <MdCatchingPokemon className="h-5 w-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"/>

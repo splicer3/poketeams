@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import MultiplierList from './MultiplierList';
 import { AbilityElement, Pokemon } from 'pokedex-promise-v2';
 import { pokemonTypes } from '@/lib/utils';
+import Button from '@/components/Button';
 
 interface TeamAnalyzerProps {
   team: Pokemon[];
@@ -72,34 +73,39 @@ const TeamAnalyzer: React.FC<TeamAnalyzerProps> = ({ team }) => {
 
 
   const generateWeaknessText = useCallback((multiplier: number, type: string) => {
-    console.log("This is " + type + " multiplier: " + multiplier)
     if (multiplier > 1 && multiplier <= 2) {
-      return <span className="font-semibold text-yellow-500">{`Weak to ${type}`}</span>;
+      return <span className="bg-orange-100/70 dark:bg-yellow-500/40 rounded-xl whit px-4 py-2 font-semibold text-yellow-500 dark:text-yellow-300 whitespace-nowrap">{`Weak to ${type.toUpperCase()}`}</span>;
     } else if (multiplier > 2) {
-      return <span className="font-bold text-red-500">{`Very weak to ${type}`}</span>;
-    }
-      else if (multiplier == 0) {
-      return <span className="font-bold text-green-500">{`Immune to ${type}`}</span>;
+      return <span className="bg-red-100/70 dark:bg-red-500/40 rounded-xl px-4 py-2 font-bold text-red-500 dark:text-red-300 whitespace-nowrap">{`Very weak to ${type.toUpperCase()}`}</span>;
     }
     return null;
   }, []);
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="font-medium">Team Analysis:</div>
-      <button
-        className="px-4 py-2 mb-4 text-white bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
-        onClick={() => setShowMultipliers(!showMultipliers)}
-      >
-        {showMultipliers ? 'Hide Multipliers' : 'Show Multipliers'}
-      </button>
-      {showMultipliers && <MultiplierList multipliers={multipliers} team={team} />}
-      <div className="font-medium">Weaknesses:</div>
-      {Object.entries(multipliers)
-        .filter(([_, multiplier]) => multiplier > 1)
-        .map(([type, multiplier]) => (
-          <div key={type}>{generateWeaknessText(multiplier, type)}</div>
-        ))}
+    <div className="flex flex-col items-center gap-4">
+      <div className="font-semibold">Team Analysis</div>
+        <div className="flex gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-wrap gap-4">
+            {Object.entries(multipliers)
+              .filter(([_, multiplier]) => multiplier > 1)
+              .map(([type, multiplier]) => (
+                <div 
+                className="flex justify-center my-1"
+                key={type}>
+                  {generateWeaknessText(multiplier, type)}
+                </div>
+              ))}
+        </div>
+          <Button
+          onClick={() => setShowMultipliers(!showMultipliers)}
+          secondary
+          >
+          {showMultipliers ? 'Hide Multipliers' : 'Show Multipliers'}
+          </Button>
+          {showMultipliers && <MultiplierList multipliers={multipliers} team={team} />}
+        </div>
+      </div>
     </div>
   );
 };

@@ -18,9 +18,10 @@ const PokemonType = () => {
                   backgroundColor: typeColors[type.type.name] || 'gray', // Use the color from the mapping, or gray if not found
                   display: 'inline-block',
                   padding: '8px',
-                  borderRadius: '4px',
+                  borderRadius: '10px',
                   margin: '4px',
                 }}
+                className="shadow-md"
                 >
                 <Image src={`/TypeIcons/${type.type.name}.svg`} alt={type.type.name} width={50} height={50}/>
                 </div>

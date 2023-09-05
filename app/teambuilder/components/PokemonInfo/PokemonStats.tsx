@@ -56,7 +56,7 @@ const PokemonStats = () => {
   return (
 <div className="flex flex-col items-center justify-center w-full">
       {!isLoading && pokemonData ? (
-        <div className="flex  flex-col items-center justify-center bg-white bg-opacity-30 dark:bg-gray-800 py-6 w-full rounded-xl">
+        <div className="flex  flex-col items-center justify-center gap-4 px-4 py-6 w-full cool-box">
         <h2 className="font-medium text-center sm:text-start">
             Stats
         </h2>
@@ -74,6 +74,10 @@ const PokemonStats = () => {
                 flex-shrink-0
                 w-40
                 max-w-full
+                shadow-lg
+                hover:shadow-xl
+                hover:scale-105
+                transition
               `}
                 style={{
                     backgroundColor: calculateColor(stat.base_stat)

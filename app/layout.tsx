@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gradient-to-b from-rose-100 to-gray-200 text-gray-950 relative dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-600 dark:text-gray-50 dark:text-opacity-90 -z-10`}>
+      <body className={`${inter.className} bg-gradient-to-b from-gray-100 to-gray-200 text-gray-950 relative dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-600 dark:text-gray-50 dark:text-opacity-90 -z-10`}>
       <SupabaseProvider>
       <UserProvider>
         <PokedexProvider>

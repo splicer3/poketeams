@@ -37,4 +37,17 @@ export const fetchAbilityDescription = async (abilityName: string, P:PokeAPI) =>
     return '';
   }
 }
+
+export function processName(str: string): string {
+  if (str.length <= 12) {
+    return str.replace("-", " ");
+  } else {
+    const hyphenIndex = str.indexOf("-");
+    if (hyphenIndex !== -1) {
+      return str.substring(0, hyphenIndex);
+    } else {
+      return str;
+    }
+  }
+}
   

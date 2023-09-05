@@ -1,23 +1,27 @@
-"use client"
+import { usePokemonContext } from '@/context/PokemonContext'
+import Image from 'next/image'
+import { Pokemon } from 'pokedex-promise-v2';
+import React from 'react'
 
-import React from 'react';
-import { usePokemonContext } from '@/context/PokemonContext';
-import Image from 'next/image';
-import { Dna } from 'react-loader-spinner';
+interface PokemonSpriteProps {
+    height: number;
+    width: number;
+    pokemon?: Pokemon;
+}
 
-const PokemonSprite = () => {
-  const { pokemonData, isLoading } = usePokemonContext();
-
+const PokemonSprite: React.FC<PokemonSpriteProps> = ({
+    height,
+    width,
+    pokemon
+}) => {
+    const { pokemonData } = usePokemonContext();
   return (
-    <div className="flex flex-col items-center gap-4">
-      {!isLoading && pokemonData ? (
-        //@ts-ignore
-        <Image src={pokemonData.sprites.other['official-artwork'].front_default} alt={`Artwork of ${pokemonData.name}`} width={256} height={256} priority/>
-      ) : (
-        <Dna width={256} height={256} />
-      )}
-    </div>
-  );
-};
+    <>
+    { (pokemonData || pokemon) &&
+        <Image src={pokemon ? pokemon.sprites.front_default! : pokemonData!.sprites.front_default!} alt='pokemon sprite' width={width} height={height}/>
+    }
+    </>
+  )
+}
 
-export default PokemonSprite;
+export default PokemonSprite
