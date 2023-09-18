@@ -50,4 +50,25 @@ export function processName(str: string): string {
     }
   }
 }
+
+const generationRanges = [
+  { gen: 1, maxId: 151 },
+  { gen: 2, maxId: 251 },
+  { gen: 3, maxId: 386 },
+  { gen: 4, maxId: 493 },
+  { gen: 5, maxId: 649 },
+  { gen: 6, maxId: 721 },
+  { gen: 7, maxId: 809 },
+  { gen: 8, maxId: 905 },
+  { gen: 9, maxId: 1010 },
+];
+
+export const getGeneration = (id: number) => {
+  for (let i = 0; i < generationRanges.length; i++) {
+    if (id <= generationRanges[i].maxId) {
+      return generationRanges[i].gen;
+    }
+  }
+  return 100; // For IDs greater than 1010, 100 is reserved for forms
+};
   

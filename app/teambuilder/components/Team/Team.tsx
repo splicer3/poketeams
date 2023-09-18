@@ -81,16 +81,13 @@ const PokemonTeamBuilder = () => {
           <Button
             onClick={handleSubmitTeam}
             disabled={selectedTeam.length < 1}
-            confirm
-            fullWidth
           >
             Submit as new Team
           </Button>
           <Button
             onClick={handleSubmitTeam}
             disabled={selectedTeam.length < 1}
-            
-            fullWidth
+            secondary
           >
             Update Team
           </Button>

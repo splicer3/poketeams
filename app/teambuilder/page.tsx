@@ -23,7 +23,7 @@ export default function Home() {
       <TeamProvider>
         <TypeColor>
         {isMobile && 
-        <div className="flex flex-col">
+        <div className="flex flex-col pt-24">
               <Button
                 onClick={() => setShowTeam(!showTeam)}
               >
@@ -31,8 +31,8 @@ export default function Home() {
               </Button>
         </div>
             }
-          <div className="flex flex-col sm:flex-row gap-16 items-center justify-center">
-            <div className="flex flex-col items-center gap-4 py-6 cool-box">
+          <div className="flex flex-col pt-0 sm:pt-20 sm:flex-row gap-16 items-center justify-center">
+            <div className="flex flex-col items-center gap-4 px-6 py-10 cool-box">
               <PokemonImage/>
               <PokemonCombo />
               <PokemonType />

@@ -6,6 +6,7 @@ import { PokedexProvider, usePokedex } from '@/context/PokedexContext'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
       <UserProvider>
         <PokedexProvider>
                 <ModalProvider/>
+                  <Header/>
                   {children}
           </PokedexProvider>
         </UserProvider>
