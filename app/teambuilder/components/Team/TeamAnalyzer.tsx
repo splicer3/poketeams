@@ -85,7 +85,7 @@ const TeamAnalyzer: React.FC<TeamAnalyzerProps> = ({ team }) => {
     <div className="flex flex-col items-center gap-4">
       <div className="font-semibold">Team Analysis</div>
         <div className="flex gap-10">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col 2xl:w-96 gap-4">
           <div className="flex flex-wrap gap-4">
             {Object.entries(multipliers)
               .filter(([_, multiplier]) => multiplier > 1)

@@ -11,6 +11,7 @@ interface ButtonProps {
     danger?: boolean;
     disabled?: boolean;
     confirm?: boolean;
+    big?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
     danger,
     disabled,
     confirm,
+    big
 }) => {
     return (
         <button
@@ -46,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
                 disabled && "opacity-50 cursor-not-allowed",
                 fullWidth && "w-full hover:scale-105",
                 !fullWidth && "w-52 hover:scale-110",
-                !secondary && "text-xl",
+                big && "text-xl",
                 confirm && "bg-green-500/50 hover:bg-green-500/80 focus-visible:outline-green-600",
                 danger && "bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600",
                 !secondary && !danger && !confirm && "bg-white/30 dark:bg-gray-900 hover:bg-gray-100/50 dark:hover:bg-gray-950 focus-visible:outline-gray-600 dark:focus-visible:outline-gray-200"
