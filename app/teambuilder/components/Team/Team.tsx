@@ -1,31 +1,31 @@
 "use client"
 import React, { useState } from 'react';
 import { TbPokeballOff } from 'react-icons/tb';
-import { usePokemonContext } from '@/context/PokemonContext';
+import { usePokemon } from '@/context/usePokemon';
 import useAuthModal from '@/hooks/useAuthModal';
 import { useUser } from '@/hooks/useUser';
 import TeamAnalyzer from './TeamAnalyzer';
 import { Pokemon } from 'pokedex-promise-v2';
-import { useTeam } from '@/context/TeamContext';
+import { useTeam } from '@/context/useTeam';
 import PokemonSprite from '../PokemonInfo/PokemonSprite';
 import { processName, typeColors } from '@/lib/utils';
 import clsx from 'clsx';
 import Button from '@/components/Button';
 
 const PokemonTeamBuilder = () => {
-  const { selectedPokemon, setSelectedPokemon, pokemonData } = usePokemonContext();
+  const { selectedPokemon, setSelectedPokemon, pokemonData, variety, setVariety} = usePokemon();
   const { selectedTeam, setSelectedTeam } = useTeam();
   const authModal = useAuthModal();
   const { user } = useUser();
 
   const handleAddToTeam = () => {
-    if (selectedTeam.length < 6 && selectedPokemon && !selectedTeam.includes(pokemonData!)) {
-      setSelectedTeam(prevTeam => [...prevTeam, pokemonData!]);
+    if (selectedTeam.length < 6 && selectedPokemon && !selectedTeam.some(item => item.pokemon === pokemonData!)) {
+      setSelectedTeam(prevTeam => [...prevTeam, { pokemon: pokemonData!, variety}]);
     }
   };
 
   const handleRemoveFromTeam = (pokemon: Pokemon) => {
-    setSelectedTeam(prevTeam => prevTeam.filter(item => item !== pokemon));
+    setSelectedTeam(prevTeam => prevTeam.filter(item => item.pokemon !== pokemon));
   };
 
   const handleSubmitTeam = () => {
@@ -43,32 +43,33 @@ const PokemonTeamBuilder = () => {
           <h2 className="font-medium">Current Team</h2>
           <Button
             onClick={handleAddToTeam}
-            disabled={!selectedPokemon || selectedTeam.length >= 6 || selectedTeam.includes(pokemonData!)}
+            disabled={!selectedPokemon || selectedTeam.length >= 6 || selectedTeam.some(item => item.pokemon === pokemonData!)}
             secondary
           >
             Add current Pokémon
           </Button>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6 mt-4">
             {selectedTeam.map(pokemon => (
-              <div key={pokemon.id}
+              <div key={pokemon.pokemon.id}
                   className={clsx(`flex flex-col gap-1 justify-center items-center
                   bg-gray-200 dark:bg-gray-600
-                  hover:bg-gradient-to-b from-[${typeColors[pokemon.types[0].type.name] + "80"}]
+                  hover:bg-gradient-to-b from-[${typeColors[pokemon.pokemon.types[0].type.name] + "80"}]
                   px-4 py-2 rounded-xl cursor-pointer shadow-lg hover:shadow-xl hover:scale-105 transition`,
-                  pokemon.types[1] ? `to-[${typeColors[pokemon.types[1].type.name] + "80"}]` : "to-gray-200"
+                  pokemon.pokemon.types[1] ? `to-[${typeColors[pokemon.pokemon.types[1].type.name] + "80"}]` : "to-gray-200"
                   )}
                   onClick={() => {
-                    setSelectedPokemon(pokemon.name)
+                    setSelectedPokemon(pokemon.pokemon.species.name);
+                    setVariety(pokemon.variety);
                   }}
                   >
-                    <PokemonSprite width={40} height={40} pokemon={pokemon}/>
+                    <PokemonSprite width={40} height={40} pokemon={pokemon.pokemon}/>
                     <span
                       className="capitalize px-8"
                     >
-                      {processName(pokemon.name)}
+                      {processName(pokemon.pokemon.name)}
                     </span>
                     <button
-                      onClick={() => handleRemoveFromTeam(pokemon)}
+                      onClick={() => handleRemoveFromTeam(pokemon.pokemon)}
                       className="text-red-500 hover:text-red-700 cursor-pointer"
                     >
                       <TbPokeballOff />
@@ -93,7 +94,7 @@ const PokemonTeamBuilder = () => {
           </Button>
         </div>
       </div>
-      {selectedTeam.length != 0 && <TeamAnalyzer team={selectedTeam}/>}
+      {selectedTeam.length != 0 && <TeamAnalyzer team={selectedTeam.map(pokemon => pokemon.pokemon)}/>}
     </div>
   );
 };

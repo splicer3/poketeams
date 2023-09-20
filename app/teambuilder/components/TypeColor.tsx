@@ -1,5 +1,5 @@
 "use client"
-import { usePokemonContext } from '@/context/PokemonContext'
+import { usePokemon } from '@/context/usePokemon'
 import { typeColors } from '@/lib/utils';
 import React, { useEffect, useState } from 'react'
 
@@ -10,7 +10,7 @@ interface typeColorProps {
 const TypeColor: React.FC<typeColorProps> = ({
     children
 }) => {
-    const { pokemonData } = usePokemonContext();
+    const { pokemonData } = usePokemon();
     const [ firstColor, setFirstColor ] = useState("");
     const [ secondColor, setSecondColor ] = useState("");
 

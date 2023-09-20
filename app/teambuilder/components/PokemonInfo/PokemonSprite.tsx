@@ -1,4 +1,4 @@
-import { usePokemonContext } from '@/context/PokemonContext'
+import { usePokemon } from '@/context/usePokemon'
 import Image from 'next/image'
 import { Pokemon } from 'pokedex-promise-v2';
 import React from 'react'
@@ -14,7 +14,7 @@ const PokemonSprite: React.FC<PokemonSpriteProps> = ({
     width,
     pokemon
 }) => {
-    const { pokemonData } = usePokemonContext();
+    const { pokemonData } = usePokemon();
   return (
     <>
     { (pokemonData || pokemon) &&

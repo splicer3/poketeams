@@ -1,25 +1,28 @@
 "use client"
 
-import { usePokedex } from '@/context/PokedexContext';
-import { usePokemonContext } from '@/context/PokemonContext';
+import { usePokedex } from '@/context/usePokedex';
+import { usePokemon } from '@/context/usePokemon';
 import { getGeneration, typeColors } from '@/lib/utils';
 import { Combobox } from '@headlessui/react';
 import clsx from 'clsx';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { MdCatchingPokemon } from "react-icons/md"
 import GenerationSelector from '../GenerationSelector';
+import FormSelector from '../FormSelector';
+import toast from 'react-hot-toast';
+import useDebounce from '@/hooks/useDebounce';
 
 const PokemonCombo = () => {
     const P = usePokedex();
     const [pokemonList, setPokemonList] = useState(['']);
-    const { selectedPokemon, setSelectedPokemon, pokemonData } = usePokemonContext();
+    const { selectedPokemon, setSelectedPokemon, pokemonData } = usePokemon();
     const [selectedGeneration, setSelectedGeneration] = useState(0);
     const [query, setQuery] = useState('');
 
     useEffect(() => {
         const fetchPokemonList = async () => {
           try {
-            const list = (await P.getPokemonsList());
+            const list = (await P.getPokemonSpeciesList());
             const names = selectedGeneration === 0 ? list.results.map(item => item.name) : 
               list.results
               .filter((_, i) => getGeneration(i + 1) === selectedGeneration)
@@ -27,14 +30,16 @@ const PokemonCombo = () => {
             setPokemonList(names);
             setSelectedPokemon(names[0]);
           } catch (error) {
-            console.error('Error fetching Pokémon list:', error);
+            toast.error('Error fetching Pokémon list:' + error);
           }
         };
         fetchPokemonList();
       }, [P, setSelectedPokemon, selectedGeneration]);
+
+    const debouncedQuery = useDebounce(query, 300);  
   
     const filteredPokemon =
-    query === ''
+    debouncedQuery === ''
       ? pokemonList
       : pokemonList.filter((pokemon) => 
             pokemon.toLowerCase().startsWith(query.toLowerCase())
@@ -60,7 +65,7 @@ const PokemonCombo = () => {
             
             </div>
             <Combobox.Options
-              className="absolute z-10 mt-1 w-[80%] capitalize bg-white dark:bg-gray-800 shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+              className="absolute z-10 mt-12 w-[80%] capitalize bg-white dark:bg-gray-800 shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
             >
               {filteredPokemon.map(pokemon => (
                 <Combobox.Option
@@ -87,7 +92,6 @@ const PokemonCombo = () => {
                           }
                                 absolute inset-y-0 left-0 flex items-center pl-3`}
                         >
-                          {/* Add your selected icon here */}
                         </span>
                       ) : null}
                     </>
@@ -96,6 +100,7 @@ const PokemonCombo = () => {
               ))}
             </Combobox.Options>
           </Combobox>
+          <FormSelector/>
           <GenerationSelector onGenerationChange={handleGenerationChange} selectedGeneration={selectedGeneration}/>
           </div>
         );

@@ -1,12 +1,12 @@
 "use client"
 
-import { usePokemonContext } from '@/context/PokemonContext';
+import { usePokemon } from '@/context/usePokemon';
 import { typeColors } from '@/lib/utils';
 import Image from 'next/image';
 import React from 'react';
 
 const PokemonType = () => {
-    const { pokemonData, isLoading } = usePokemonContext();
+    const { pokemonData, isLoading } = usePokemon();
 
     return (
         <div className="capitalize">

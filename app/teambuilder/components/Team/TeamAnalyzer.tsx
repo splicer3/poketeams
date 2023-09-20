@@ -1,5 +1,5 @@
 "use client"
-import { usePokedex } from '@/context/PokedexContext';
+import { usePokedex } from '@/context/usePokedex';
 import React, { useCallback, useEffect, useState } from 'react';
 import MultiplierList from './MultiplierList';
 import { AbilityElement, Pokemon } from 'pokedex-promise-v2';

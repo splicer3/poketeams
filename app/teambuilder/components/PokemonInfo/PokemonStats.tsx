@@ -1,10 +1,10 @@
 "use client"
 import React from 'react';
-import { usePokemonContext } from '@/context/PokemonContext';
+import { usePokemon } from '@/context/usePokemon';
 import { Statistics } from '@/lib/utils';
 
 const PokemonStats = () => {
-  const { pokemonData, isLoading } = usePokemonContext();
+  const { pokemonData, isLoading } = usePokemon();
 
   const calculateColor = (value: number) => {
     value = Math.min(value, 180);  // Treat any value above 180 as 180

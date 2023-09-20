@@ -13,7 +13,6 @@ const generations = [
     { id: 7, name: 'Generation VII' },
     { id: 8, name: 'Generation VIII' },
     { id: 9, name: 'Generation IX' },
-    { id: 100, name: 'Forms' },
 ];
 
 interface GenerationSelectorProps {
@@ -30,7 +29,7 @@ const GenerationSelector: React.FC<GenerationSelectorProps> = ({
     <Listbox value={selectedGeneration} onChange={onGenerationChange}>
       {({ open }) => (
         <div className="relative mt-1">
-          <Listbox.Button className="relative group w-40 py-2 pl-3 pr-10 text-left bg-white dark:bg-gray-900 rounded-lg cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-orange-500 sm:text-sm">
+          <Listbox.Button className="relative group w-40 py-2 pl-3 pr-10 text-left bg-white dark:bg-gray-900 rounded-lg cursor-default hover:shadow-md sm:text-sm">
             <span className="block truncate">{generations.find(gen => gen.id === selectedGeneration)?.name}</span>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200 cursor-pointer">
               <GiPokecog/>

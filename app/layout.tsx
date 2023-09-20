@@ -1,12 +1,12 @@
-import { PokemonProvider } from '@/context/PokemonContext'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { PokedexProvider, usePokedex } from '@/context/PokedexContext'
+import { PokedexProvider, usePokedex } from '@/context/usePokedex'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
 import Header from '@/components/Header'
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,13 +22,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gradient-to-b from-gray-100 to-gray-200 text-gray-950 relative dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-600 dark:text-gray-50 dark:text-opacity-90 -z-10`}>
+      <body className={`${inter.className} bg-gradient-to-b from-gray-100 to-gray-200 text-gray-950 relative dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-600 dark:text-gray-50 dark:text-opacity-90 -z-10 h-full`}>
       <SupabaseProvider>
       <UserProvider>
         <PokedexProvider>
                 <ModalProvider/>
                   <Header/>
                   {children}
+                  <Toaster/>
           </PokedexProvider>
         </UserProvider>
         </SupabaseProvider>

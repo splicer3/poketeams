@@ -1,13 +1,13 @@
 "use client"
-import { PokemonProvider } from "@/context/PokemonContext";
+import { PokemonProvider } from "@/context/usePokemon";
 import PokemonAbilities from "./components/PokemonInfo/PokemonAbilities";
 import PokemonCombo from "./components/PokemonInfo/PokemonCombo";
 import PokemonStats from "./components/PokemonInfo/PokemonStats";
 import PokemonType from "./components/PokemonInfo/PokemonType";
 import Team from "./components/Team/Team";
-import { usePokedex } from "@/context/PokedexContext";
+import { usePokedex } from "@/context/usePokedex";
 import TypeColor from "./components/TypeColor";
-import { TeamProvider } from "@/context/TeamContext";
+import { TeamProvider } from "@/context/useTeam";
 import useViewport from "@/hooks/useViewPort";
 import useViewportStore from "@/hooks/useViewPortStore";
 import Button from "@/components/Button";

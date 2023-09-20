@@ -1,12 +1,12 @@
 "use client"
 
 import React from 'react';
-import { usePokemonContext } from '@/context/PokemonContext';
+import { usePokemon } from '@/context/usePokemon';
 import Image from 'next/image';
 import { Dna } from 'react-loader-spinner';
 
 const PokemonImage = () => {
-  const { pokemonData, isLoading } = usePokemonContext();
+  const { pokemonData, isLoading } = usePokemon();
 
   return (
     <div className="flex flex-col items-center gap-4">

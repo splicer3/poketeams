@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { usePokedex } from '@/context/PokedexContext';
-import { usePokemonContext } from '@/context/PokemonContext';
+import { usePokedex } from '@/context/usePokedex';
+import { usePokemon } from '@/context/usePokemon';
 import PokeAPI from 'pokedex-promise-v2';
 import { Ability } from '@/types/types';
 import { clsx } from 'clsx';
@@ -9,7 +9,7 @@ import { fetchAbilityDescription } from '@/lib/utils';
 
 const PokemonAbilities = () => {
   const P = usePokedex();
-  const { selectedPokemon, pokemonData } = usePokemonContext();
+  const { selectedPokemon, pokemonData } = usePokemon();
   const [abilities, setAbilities] = useState<Ability[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 

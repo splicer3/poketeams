@@ -1,9 +1,14 @@
 import React, { ReactNode, createContext, useContext, useState } from 'react';
 import { Pokemon } from 'pokedex-promise-v2';
 
+interface TeamPokemon {
+  pokemon: Pokemon;
+  variety: number;
+}
+
 interface TeamContextProps {
-  selectedTeam: Pokemon[];
-  setSelectedTeam: React.Dispatch<React.SetStateAction<Pokemon[]>>;
+  selectedTeam: TeamPokemon[];
+  setSelectedTeam: React.Dispatch<React.SetStateAction<TeamPokemon[]>>;
 }
 
 const TeamContext = createContext<TeamContextProps | undefined>(undefined);
@@ -13,7 +18,7 @@ type TeamProviderProps = {
   };
 
 export const TeamProvider: React.FC<TeamProviderProps> = ({ children }) => {
-  const [selectedTeam, setSelectedTeam] = useState<Pokemon[]>([]);
+  const [selectedTeam, setSelectedTeam] = useState<TeamPokemon[]>([]);
 
   return (
     <TeamContext.Provider value={{ selectedTeam, setSelectedTeam }}>
