@@ -48,3 +48,13 @@ body {
 .cool-box {
   @apply bg-white bg-opacity-30 dark:bg-gray-800 dark:bg-opacity-80 rounded-xl shadow-lg
 }
+
+.item {
+  width: 56%;
+  overflow: visible;
+  stroke: white;
+  stroke-opacity: 70%;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
+import Porygon from './Porygon'
 
 const Hero = () => {
   return (
@@ -18,7 +19,7 @@ const Hero = () => {
         </p>
       </div>
       <div>
-        <Image src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"} alt='Ditto' width={256} height={256} priority/>
+        <Porygon/>
       </div>
     </motion.section>
   )
