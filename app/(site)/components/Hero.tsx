@@ -1,8 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import React from 'react'
+import React, { useRef } from 'react'
 import Porygon from './Porygon'
 
 const Hero = () => {
@@ -18,7 +17,7 @@ const Hero = () => {
           PokeTeams is a website that allows you to create, save and edit your Pokemon teams while checking for potential weak points in them.
         </p>
       </div>
-      <div>
+      <div className='flex justify-center'>
         <Porygon/>
       </div>
     </motion.section>

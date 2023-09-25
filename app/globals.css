@@ -49,8 +49,7 @@ body {
   @apply bg-white bg-opacity-30 dark:bg-gray-800 dark:bg-opacity-80 rounded-xl shadow-lg
 }
 
-.item {
-  width: 56%;
+.porygon {
   overflow: visible;
   stroke: white;
   stroke-opacity: 70%;
