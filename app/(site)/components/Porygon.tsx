@@ -33,7 +33,7 @@ const Porygon = () => {
         width="397.5px"
         height="354px"
         viewBox="0.0 0.05 264.75 235.95"
-        className={clsx("w-1/2 lg:w-[80%]", { "stroke-gray-600 dark:stroke-gray-100 overflow-visible porygon" : !clicked })}
+        className={clsx("w-1/2 lg:w-[80%] h-[80%]", { "stroke-gray-600 dark:stroke-gray-100 overflow-visible porygon" : !clicked })}
         variants={porygon}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
