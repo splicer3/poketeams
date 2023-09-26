@@ -50,8 +50,6 @@ body {
 }
 
 .porygon {
-  overflow: visible;
-  stroke: white;
   stroke-opacity: 70%;
   stroke-width: 2;
   stroke-linejoin: round;
