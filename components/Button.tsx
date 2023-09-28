@@ -12,6 +12,7 @@ interface ButtonProps {
     disabled?: boolean;
     confirm?: boolean;
     big?: boolean;
+    traslucid?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -23,7 +24,8 @@ const Button: React.FC<ButtonProps> = ({
     danger,
     disabled,
     confirm,
-    big
+    big,
+    traslucid
 }) => {
     return (
         <button
@@ -51,8 +53,9 @@ const Button: React.FC<ButtonProps> = ({
                 big && "text-xl",
                 confirm && "bg-green-500/50 hover:bg-green-500/80 focus-visible:outline-green-600",
                 danger && "bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600",
-                !secondary && !danger && !confirm && "bg-white/30 dark:bg-gray-900 hover:bg-gray-100/50 dark:hover:bg-gray-950 focus-visible:outline-gray-600 dark:focus-visible:outline-gray-200"
-            )}
+                !secondary && !danger && !confirm && traslucid && "bg-white/30 dark:bg-gray-900 hover:bg-gray-100/50 dark:hover:bg-gray-950 focus-visible:outline-gray-600 dark:focus-visible:outline-gray-200",
+                !secondary && !danger && !confirm && !traslucid && "bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-950 focus-visible:outline-gray-600 dark:focus-visible:outline-gray-200"
+            )} 
         >
             {children}
         </button>

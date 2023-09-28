@@ -1,7 +1,7 @@
 import { UserDetails } from "@/types/types";
 import { User } from "@supabase/auth-helpers-nextjs";
 import { useSessionContext, useUser as useSupaUser } from "@supabase/auth-helpers-react";
-import React from "react";
+import React, { useCallback } from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type UserContextType = {
@@ -30,11 +30,12 @@ export const MyUserContextProvider = (props: Props) => {
     const [isLoadingData, setIsLoadingData] = useState(false);
     const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
 
-    const getUserDetails = () => 
+    const getUserDetails = useCallback(() => 
         supabase
             .from('users')
             .select('*')
-            .single();
+            .single(), 
+        [supabase]);
 
     useEffect(() => {
         if (user && !isLoadingData && !userDetails) {
@@ -54,7 +55,7 @@ export const MyUserContextProvider = (props: Props) => {
         } else if (!user && !isLoadingUser && !isLoadingData) {
             setUserDetails(null);
         }
-    }, [user, isLoadingUser])
+    }, [user, isLoadingUser, isLoadingData, userDetails, getUserDetails])
 
     const value = {
         accessToken,

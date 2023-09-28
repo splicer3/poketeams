@@ -22,10 +22,9 @@ const Header = () => {
                     border
                     border-white
                     border-opacity-40
-                    bg-white/70
-                    dark:bg-gray-900/70
+                    bg-white/80
+                    dark:bg-gray-900/80
                     dark:border-gray-800/40
-                    dark:bg-opacity-75
                     shadow-lg
                     shadow-black/[0.03]
                     backdrop-blur-[0.5rem]
