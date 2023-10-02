@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbPokeballOff } from 'react-icons/tb';
 import { usePokemon } from '@/context/usePokemon';
 import useAuthModal from '@/hooks/useAuthModal';
@@ -18,6 +18,8 @@ const PokemonTeamBuilder = () => {
   const authModal = useAuthModal();
   const { user } = useUser();
 
+  const [teamToAnalyze, setTeamToAnalyze] = useState<Pokemon[]>([]);
+
   const handleAddToTeam = () => {
     if (selectedTeam.length < 6 && selectedPokemon && !selectedTeam.some(item => item.pokemon === pokemonData!)) {
       setSelectedTeam(prevTeam => [...prevTeam, { pokemon: pokemonData!, variety}]);
@@ -35,6 +37,10 @@ const PokemonTeamBuilder = () => {
     }
     console.log('Selected Team:', selectedTeam);
   };
+
+  useEffect(() => {
+    setTeamToAnalyze(selectedTeam.map(pokemon => pokemon.pokemon));
+  }, [selectedTeam])
 
   return (
     <div className="flex flex-col 2xl:flex-row justify-center gap-10 2xl:gap-20 w-full sm:w-[90%] dark:text-white p-6 rounded-xl cool-box">
@@ -69,7 +75,10 @@ const PokemonTeamBuilder = () => {
                       {processName(pokemon.pokemon.name)}
                     </span>
                     <button
-                      onClick={() => handleRemoveFromTeam(pokemon.pokemon)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRemoveFromTeam(pokemon.pokemon)
+                      }}
                       className="text-red-500 hover:text-red-700 cursor-pointer"
                     >
                       <TbPokeballOff />
@@ -94,7 +103,7 @@ const PokemonTeamBuilder = () => {
           </Button>
         </div>
       </div>
-      {selectedTeam.length != 0 && <TeamAnalyzer team={selectedTeam.map(pokemon => pokemon.pokemon)}/>}
+      {selectedTeam.length != 0 && <TeamAnalyzer team={teamToAnalyze}/>}
     </div>
   );
 };

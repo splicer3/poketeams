@@ -69,6 +69,7 @@ const TeamAnalyzer: React.FC<TeamAnalyzerProps> = ({ team }) => {
         ground: 0
       }));
     }
+  
   }, [team]);
 
 
