@@ -11,6 +11,7 @@ import PokemonSprite from '../PokemonInfo/PokemonSprite';
 import { processName, typeColors } from '@/lib/utils';
 import clsx from 'clsx';
 import Button from '@/components/Button';
+import NewTeamModal from './Modals/NewTeamModal';
 
 const PokemonTeamBuilder = () => {
   const { selectedPokemon, setSelectedPokemon, pokemonData, variety, setVariety} = usePokemon();
@@ -18,7 +19,7 @@ const PokemonTeamBuilder = () => {
   const authModal = useAuthModal();
   const { user } = useUser();
 
-  const [teamToAnalyze, setTeamToAnalyze] = useState<Pokemon[]>([]);
+  const [teamToAnalyze, setTeamToAnalyze] = useState<Pokemon[]>([])
 
   const handleAddToTeam = () => {
     if (selectedTeam.length < 6 && selectedPokemon && !selectedTeam.some(item => item.pokemon === pokemonData!)) {
@@ -35,7 +36,7 @@ const PokemonTeamBuilder = () => {
     if (!user) {
       return authModal.onOpen();
     }
-    console.log('Selected Team:', selectedTeam);
+    
   };
 
   useEffect(() => {
@@ -43,6 +44,7 @@ const PokemonTeamBuilder = () => {
   }, [selectedTeam])
 
   return (
+    <>
     <div className="flex flex-col 2xl:flex-row justify-center gap-10 2xl:gap-20 w-full sm:w-[90%] dark:text-white p-6 rounded-xl cool-box">
       <div className="flex flex-col items-center gap-8">
         <div className="flex flex-col items-center">
@@ -105,6 +107,7 @@ const PokemonTeamBuilder = () => {
       </div>
       {selectedTeam.length != 0 && <TeamAnalyzer team={teamToAnalyze}/>}
     </div>
+    </>
   );
 };
 

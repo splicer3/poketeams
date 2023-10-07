@@ -4,6 +4,7 @@ import { createContext, useContext, useState, ReactNode, useEffect } from 'react
 import PokeAPI, { Pokemon, PokemonSpecies } from 'pokedex-promise-v2';
 import { Ability } from '@/types/types';
 import { fetchAbilityDescription } from '@/lib/utils';
+import { parseAsInteger, useQueryState } from "next-usequerystate"
 
 type PokemonContextType = {
   selectedPokemon: string;
@@ -32,11 +33,11 @@ type PokemonProviderProps = {
 };
 
 export function PokemonProvider({ children, P }: PokemonProviderProps) {
-  const [selectedPokemon, setSelectedPokemon] = useState('');
+  const [selectedPokemon, setSelectedPokemon] = useQueryState("species", { defaultValue: "bulbasaur" });
   const [pokemonData, setPokemonData] = useState<PokeAPI.Pokemon | null>(null);
   const [abilities, setAbilities] = useState<Ability[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [variety, setVariety] = useState(0);
+  const [variety, setVariety] = useQueryState("form", parseAsInteger.withDefault(0));
   const [pokemonSpecies, setPokemonSpecies] = useState<PokemonSpecies>()
 
   useEffect(() => {
@@ -78,7 +79,7 @@ export function PokemonProvider({ children, P }: PokemonProviderProps) {
 
   useEffect(() => {
     setVariety(0);
-  }, [selectedPokemon]);
+  }, [selectedPokemon, setVariety]);
 
   return (
     <PokemonContext.Provider value={{ pokemonSpecies, selectedPokemon, setSelectedPokemon, pokemonData, abilities, isLoading, variety, setVariety }}>

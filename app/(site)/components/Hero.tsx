@@ -6,8 +6,10 @@ import Porygon from './Porygon'
 import Button from '@/components/Button'
 import { useUser } from '@/hooks/useUser'
 import useAuthModal from '@/hooks/useAuthModal'
+import { useRouter } from 'next/navigation'
 
 const Hero = () => {
+  const router = useRouter();
   const { user } = useUser();
   const authModal = useAuthModal();
 
@@ -34,7 +36,7 @@ const Hero = () => {
           </p>
           <div className='flex flex-col justify-center sm:flex-row gap-2 sm:gap-0'>
             {user ? 
-            <Button big onClick={handleLogIn}>
+            <Button big onClick={() => router.push("/teambuilder")}>
               Start building
             </Button>
               :
@@ -42,7 +44,7 @@ const Hero = () => {
             <Button big onClick={handleLogIn}>
               Log In
             </Button>
-            <Button secondary>
+            <Button secondary onClick={() => router.push("/teambuilder")}>
               Start building
             </Button>
             </>
