@@ -1,6 +1,6 @@
 "use client";
 
-import AuthModal from "@/components/AuthModal";
+import AuthModal from "@/components/Modals/AuthModal";
 
 import { useEffect, useState } from "react";
 

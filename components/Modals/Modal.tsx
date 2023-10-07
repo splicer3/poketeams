@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({
         >
             <Dialog
                 as="div"
-                className="relative z-50"
+                className="relative z-[999]"
                 onClose={onClose}
             >
                 <Transition.Child

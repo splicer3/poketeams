@@ -11,12 +11,14 @@ import PokemonSprite from '../PokemonInfo/PokemonSprite';
 import { processName, typeColors } from '@/lib/utils';
 import clsx from 'clsx';
 import Button from '@/components/Button';
-import NewTeamModal from './Modals/NewTeamModal';
+import NewTeamModal from '../../../../components/Modals/NewTeamModal';
+import useNewTeamModal from '@/hooks/useNewTeamModal';
 
 const PokemonTeamBuilder = () => {
   const { selectedPokemon, setSelectedPokemon, pokemonData, variety, setVariety} = usePokemon();
   const { selectedTeam, setSelectedTeam } = useTeam();
   const authModal = useAuthModal();
+  const newTeamModal = useNewTeamModal();
   const { user } = useUser();
 
   const [teamToAnalyze, setTeamToAnalyze] = useState<Pokemon[]>([])
@@ -36,8 +38,16 @@ const PokemonTeamBuilder = () => {
     if (!user) {
       return authModal.onOpen();
     }
+
+    else {
+      return newTeamModal.onOpen();
+    }
     
   };
+
+  useEffect(() => {
+    console.log(newTeamModal.isOpen)
+  }, [newTeamModal.isOpen])
 
   useEffect(() => {
     setTeamToAnalyze(selectedTeam.map(pokemon => pokemon.pokemon));
@@ -45,6 +55,7 @@ const PokemonTeamBuilder = () => {
 
   return (
     <>
+    <NewTeamModal/>
     <div className="flex flex-col 2xl:flex-row justify-center gap-10 2xl:gap-20 w-full sm:w-[90%] dark:text-white p-6 rounded-xl cool-box">
       <div className="flex flex-col items-center gap-8">
         <div className="flex flex-col items-center">

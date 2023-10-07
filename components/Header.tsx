@@ -9,9 +9,9 @@ import React, { useState } from 'react'
 
 
 const Header = () => {
-    const [activeSection, setActiveSection] = useState("Teambuilder");
+    const [activeSection, setActiveSection] = useState("Home");
   return (
-        <header className="z-[999] relative">
+        <header className="z-[99] relative">
             <motion.div 
             className="
                     fixed
