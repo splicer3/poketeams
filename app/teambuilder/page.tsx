@@ -1,9 +1,9 @@
 "use client"
 import { PokemonProvider } from "@/context/usePokemon";
-import PokemonAbilities from "./components/PokemonInfo/PokemonAbilities";
-import PokemonCombo from "./components/PokemonInfo/PokemonCombo";
-import PokemonStats from "./components/PokemonInfo/PokemonStats";
-import PokemonType from "./components/PokemonInfo/PokemonType";
+import PokemonAbilities from "../../components/PokemonInfo/PokemonAbilities";
+import PokemonCombo from "../../components/PokemonInfo/PokemonCombo";
+import PokemonStats from "../../components/PokemonInfo/PokemonStats";
+import PokemonType from "../../components/PokemonInfo/PokemonType";
 import Team from "./components/Team/Team";
 import { usePokedex } from "@/context/usePokedex";
 import TypeColor from "./components/TypeColor";
@@ -11,7 +11,7 @@ import { TeamProvider } from "@/context/useTeam";
 import useViewport from "@/hooks/useViewPort";
 import useViewportStore from "@/hooks/useViewPortStore";
 import Button from "@/components/Button";
-import PokemonImage from "./components/PokemonInfo/PokemonImage";
+import PokemonImage from "../../components/PokemonInfo/PokemonImage";
 
 export default function Home() {
   const P = usePokedex();

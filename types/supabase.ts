@@ -12,20 +12,26 @@ export interface Database {
       teams: {
         Row: {
           created_at: string
+          description: string | null
           id: number
-          pokemon: string[] | null
+          name: string
+          pokemon: Json[] | null
           user_id: string
         }
         Insert: {
           created_at?: string
+          description?: string | null
           id?: number
-          pokemon?: string[] | null
+          name: string
+          pokemon?: Json[] | null
           user_id: string
         }
         Update: {
           created_at?: string
+          description?: string | null
           id?: number
-          pokemon?: string[] | null
+          name?: string
+          pokemon?: Json[] | null
           user_id?: string
         }
         Relationships: [

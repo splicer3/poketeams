@@ -40,5 +40,8 @@
     "typescript": "5.1.6",
     "uniqid": "^5.4.0",
     "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "supabase": "^1.100.1"
   }
 }

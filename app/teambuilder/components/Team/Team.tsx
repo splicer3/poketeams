@@ -7,7 +7,7 @@ import { useUser } from '@/hooks/useUser';
 import TeamAnalyzer from './TeamAnalyzer';
 import { Pokemon } from 'pokedex-promise-v2';
 import { useTeam } from '@/context/useTeam';
-import PokemonSprite from '../PokemonInfo/PokemonSprite';
+import PokemonSprite from '../../../../components/PokemonInfo/PokemonSprite';
 import { processName, typeColors } from '@/lib/utils';
 import clsx from 'clsx';
 import Button from '@/components/Button';

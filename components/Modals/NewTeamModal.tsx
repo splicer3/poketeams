@@ -38,7 +38,7 @@ const NewTeamModal = () => {
 
             const name = values.name;
             const desc = values.desc;
-            /*
+
             const teamDB = selectedTeam.map((teamPokemon) => {
                 return {
                   pokemon_name: teamPokemon.pokemon.species.name,
@@ -46,8 +46,6 @@ const NewTeamModal = () => {
                   variety: teamPokemon.variety,
                 };
               });
-            const team = JSON.stringify(teamDB);
-            console.log(team)*/
 
             if (!name || !desc || !user) {
                 toast.error('Missing fields');
@@ -64,7 +62,7 @@ const NewTeamModal = () => {
                             user_id: user.id,
                             name: values.name,
                             description: values.desc,
-                            pokemon: selectedTeam,
+                            pokemon: teamDB,
                         }])
 
             if (supabaseError) {
