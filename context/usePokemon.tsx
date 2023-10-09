@@ -33,11 +33,11 @@ type PokemonProviderProps = {
 };
 
 export function PokemonProvider({ children, P }: PokemonProviderProps) {
+  const [variety, setVariety] = useState(0);
   const [selectedPokemon, setSelectedPokemon] = useQueryState("species", { defaultValue: "bulbasaur" });
   const [pokemonData, setPokemonData] = useState<PokeAPI.Pokemon | null>(null);
   const [abilities, setAbilities] = useState<Ability[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [variety, setVariety] = useQueryState("form", parseAsInteger.withDefault(0));
   const [pokemonSpecies, setPokemonSpecies] = useState<PokemonSpecies>()
 
   useEffect(() => {
@@ -72,9 +72,8 @@ export function PokemonProvider({ children, P }: PokemonProviderProps) {
       setIsLoading(false);
     };
 
-    if (pokemonSpecies) {
       fetchPokemonData();
-    }
+
   }, [pokemonSpecies, P, variety]);
 
   useEffect(() => {

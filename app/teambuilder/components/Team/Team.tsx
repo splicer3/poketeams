@@ -46,10 +46,6 @@ const PokemonTeamBuilder = () => {
   };
 
   useEffect(() => {
-    console.log(newTeamModal.isOpen)
-  }, [newTeamModal.isOpen])
-
-  useEffect(() => {
     setTeamToAnalyze(selectedTeam.map(pokemon => pokemon.pokemon));
   }, [selectedTeam])
 

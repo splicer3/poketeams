@@ -73,8 +73,7 @@ const Modal: React.FC<ModalProps> = ({
                                 rounded-lg
                                 bg-white
                                 dark:bg-black
-                                px-4
-                                pb-4
+                                p-4
                                 text-left
                                 shadow-xl
                                 transition-all

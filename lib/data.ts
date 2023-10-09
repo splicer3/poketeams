@@ -8,7 +8,7 @@ export const links = [
       url: "/teambuilder",
     },
     {
-      name: "About",
-      url: "/about",
+      name: "Your teams",
+      url: "/teams",
     },
   ] as const;
