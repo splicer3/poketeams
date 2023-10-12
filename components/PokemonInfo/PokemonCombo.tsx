@@ -7,8 +7,8 @@ import { Combobox } from '@headlessui/react';
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { MdCatchingPokemon } from "react-icons/md"
-import GenerationSelector from '../../app/teambuilder/components/GenerationSelector';
-import FormSelector from '../../app/teambuilder/components/FormSelector';
+import GenerationSelector from '../../app/teams/teambuilder/components/GenerationSelector';
+import FormSelector from '../../app/teams/teambuilder/components/FormSelector';
 import toast from 'react-hot-toast';
 import useDebounce from '@/hooks/useDebounce';
 

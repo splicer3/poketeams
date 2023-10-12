@@ -1,6 +1,7 @@
 import { usePokedex } from '@/context/usePokedex';
 import useTeamPokemonPreview from '@/hooks/useTeamPokemonPreview';
 import { DBTeamPokemon } from '@/hooks/useTeamsByUser';
+import { processName } from '@/lib/utils';
 import Image from 'next/image';
 import React from 'react'
 
@@ -21,10 +22,10 @@ const PokemonItem: React.FC<PokemonItemProps> = ({ pokemon }) => {
     }
 
     return (
-        <div className='flex gap-10'>
+        <div className='flex gap-2 items-center justify-center'>
             <Image src={sprite} alt='Pokemon sprite' width={50} height={50}/>
             <p className='capitalize'>
-                {name}
+                {processName(name)}
             </p>
         </div>
     )

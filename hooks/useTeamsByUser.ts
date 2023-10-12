@@ -9,11 +9,13 @@ export interface DBTeamPokemon {
 
 export interface DBTeam {
     pokemon: DBTeamPokemon[];
+    name: string;
+    description: string
 }
 
 type DBTeamArray = DBTeam[];
 
-function useTeamsByUser(user_id: string) {
+function useTeamsByUser(user_id?: string) {
   const supabase = useSupabaseClient();  
   const [teams, setTeams] = useState<DBTeam[]>();
   const [loading, setLoading] = useState(true);
@@ -24,14 +26,13 @@ function useTeamsByUser(user_id: string) {
       try {
         const { data, error } = await supabase
           .from('teams')
-          .select('pokemon')
+          .select(`pokemon, name, description`)
           .eq('user_id', user_id);
 
         if (error) {
           setError(error.message);
         } else {
         // Map the data to convert it to the desired structure (DBTeam)
-          console.log(data);
           setTeams(data as unknown as DBTeamArray);
         }
       } catch (error: any) {
@@ -41,7 +42,9 @@ function useTeamsByUser(user_id: string) {
       }
     };
 
-    fetchTeams();
+    if(user_id) {
+      fetchTeams();
+    }
   }, [user_id, supabase]);
 
   return { teams, loading, error };

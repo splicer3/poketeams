@@ -1,7 +1,7 @@
 import React, { ReactNode, createContext, useContext, useState } from 'react';
 import { Pokemon } from 'pokedex-promise-v2';
 
-interface TeamPokemon {
+export interface TeamPokemon {
   pokemon: Pokemon;
   variety: number;
 }

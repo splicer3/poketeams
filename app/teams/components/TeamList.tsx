@@ -1,21 +1,24 @@
 "use client"
 
-import Button from '@/components/Button'
 import useTeamsByUser from '@/hooks/useTeamsByUser'
 import { useUser } from '@/hooks/useUser'
-import { useSupabaseClient } from '@supabase/auth-helpers-react'
 
 import { motion } from 'framer-motion'
 import React, { useEffect } from 'react'
 import TeamItem from './TeamItem'
+import { useRouter } from 'next/navigation'
+import TeamModal from '@/components/Modals/TeamModal'
 
 const TeamList = () => {
-  const { user } = useUser();
-  const { teams, loading, error } = useTeamsByUser(user!.id);
+  const { user, isLoading } = useUser();
+  const { teams, loading, error } = useTeamsByUser(user?.id);
+  const router = useRouter();
 
   useEffect(() => {
-    console.log(teams)
-  }, [teams])
+    if (!isLoading && !user) {
+        router.replace('/');
+    }
+}, [isLoading, user, router]);
   
 
   if (loading) {
@@ -26,6 +29,8 @@ const TeamList = () => {
     return <div>Error: {error}</div>;
   }
   return (
+    <>
+    <TeamModal />
     <motion.section
     className='flex-col cool-box justify-between px-6 items-center self-center w-[70%]'
     initial={{ opacity: 0, y: 50 }}
@@ -37,7 +42,7 @@ const TeamList = () => {
   </h1>
   <div className='flex flex-col lg:flex-row w-full justify-around items-center'>
     <div className='flex-col space-y-10'>
-    <div>
+    <div className='flex flex-col sm:flex-row flex-wrap gap-10'>
       {teams!.map((team, index) => (
       <TeamItem key={index} team={team} />
       ))}
@@ -45,6 +50,7 @@ const TeamList = () => {
     </div>
   </div>
 </motion.section>
+</>
   )
 }
 
