@@ -1,4 +1,5 @@
-import { usePokemon } from '@/context/usePokemon'
+import MissingNo from '@/public/MissingNo.svg'
+
 import Image from 'next/image'
 import { Pokemon } from 'pokedex-promise-v2';
 import React from 'react'
@@ -14,11 +15,10 @@ const PokemonSprite: React.FC<PokemonSpriteProps> = ({
     width,
     pokemon
 }) => {
-    const { pokemonData } = usePokemon();
   return (
     <>
-    { (pokemonData || pokemon) &&
-        <Image src={pokemon ? pokemon.sprites.front_default! : pokemonData!.sprites.front_default!} alt='pokemon sprite' width={width} height={height}/>
+    { pokemon &&
+        <Image src={pokemon?.sprites.front_default ? pokemon.sprites.front_default : MissingNo} alt={`Sprite of ${pokemon.name}`} width={width} height={height} className='object-contain'/>
     }
     </>
   )
