@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { DBTeam } from "./useTeamsByUser";
+import { DBTeam } from "../context/useTeamsByUser";
 
 interface TeamModalStore {
     isOpen: boolean;

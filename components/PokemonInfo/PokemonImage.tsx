@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Dna } from 'react-loader-spinner';
 
 const PokemonImage = () => {
-  const { pokemonSpecies, pokemonData, isLoading } = usePokemon();
+  const { pokemonData, isLoading } = usePokemon();
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   useEffect(() => {

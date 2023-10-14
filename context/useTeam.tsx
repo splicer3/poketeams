@@ -9,6 +9,8 @@ export interface TeamPokemon {
 interface TeamContextProps {
   selectedTeam: TeamPokemon[];
   setSelectedTeam: React.Dispatch<React.SetStateAction<TeamPokemon[]>>;
+  id?: number;
+  setId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
 const TeamContext = createContext<TeamContextProps | undefined>(undefined);
@@ -19,9 +21,10 @@ type TeamProviderProps = {
 
 export const TeamProvider: React.FC<TeamProviderProps> = ({ children }) => {
   const [selectedTeam, setSelectedTeam] = useState<TeamPokemon[]>([]);
+  const [id, setId] = useState<number | undefined>(undefined)
 
   return (
-    <TeamContext.Provider value={{ selectedTeam, setSelectedTeam }}>
+    <TeamContext.Provider value={{ selectedTeam, setSelectedTeam, id, setId }}>
       {children}
     </TeamContext.Provider>
   );

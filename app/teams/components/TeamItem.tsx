@@ -1,19 +1,15 @@
-import { DBTeam } from '@/hooks/useTeamsByUser'
+import { DBTeam } from '@/context/useTeamsByUser'
 import React from 'react'
 import PokemonItem from './PokemonItem'
-import useTeamModal from '@/hooks/useTeamModal'
-import TeamModal from '@/components/Modals/TeamModal'
 
 interface TeamItemProps {
-    team: DBTeam
+    team: DBTeam;
+    onClick: (team: DBTeam) => void;
 }
 
-const TeamItem: React.FC<TeamItemProps> = ({ team }) => {
-  const teamModal = useTeamModal();
-
+const TeamItem: React.FC<TeamItemProps> = ({ team, onClick }) => {
   const handleClick = () => {
-    teamModal.setSelectedTeam(team);
-    teamModal.onOpen();
+    onClick(team);
   }
   
   return (

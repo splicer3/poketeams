@@ -1,25 +1,29 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { TbPokeballOff } from 'react-icons/tb';
+import clsx from 'clsx';
+import { Pokemon } from 'pokedex-promise-v2';
+
+import { useTeam } from '@/context/useTeam';
 import { usePokemon } from '@/context/usePokemon';
 import useAuthModal from '@/hooks/useAuthModal';
 import { useUser } from '@/hooks/useUser';
 import TeamAnalyzer from './TeamAnalyzer';
-import { Pokemon } from 'pokedex-promise-v2';
-import { useTeam } from '@/context/useTeam';
 import PokemonSprite from '../../../../../components/PokemonInfo/PokemonSprite';
 import { processName, typeColors } from '@/lib/utils';
-import clsx from 'clsx';
 import Button from '@/components/Button';
 import NewTeamModal from '../../../../../components/Modals/NewTeamModal';
 import useNewTeamModal from '@/hooks/useNewTeamModal';
+import toast from 'react-hot-toast';
 
 const PokemonTeamBuilder = () => {
   const { selectedPokemon, setSelectedPokemon, pokemonData, variety, setVariety} = usePokemon();
-  const { selectedTeam, setSelectedTeam } = useTeam();
+  const { selectedTeam, setSelectedTeam, id} = useTeam();
   const authModal = useAuthModal();
   const newTeamModal = useNewTeamModal();
   const { user } = useUser();
+  const supabaseClient = useSupabaseClient();
 
   const [teamToAnalyze, setTeamToAnalyze] = useState<Pokemon[]>([])
 
@@ -44,6 +48,39 @@ const PokemonTeamBuilder = () => {
     }
     
   };
+
+  const updateTeam = useCallback(async () => {
+      const teamDB = selectedTeam.map((teamPokemon) => {
+          return {
+            pokemon_name: teamPokemon.pokemon.species.name,
+            pokemon_url: teamPokemon.pokemon.species.url, // Replace Pokemon object with species value
+            variety: teamPokemon.variety,
+          };
+        });
+
+      if (!user) {
+          toast.error('Not logged in');
+          return;
+      }
+
+      // Upload team
+
+      const supabasePromise = await supabaseClient
+                  .from('teams')
+                  .update([{
+                      pokemon: teamDB,
+                  }])
+                  .eq('id', id)
+                  .eq('user_id', user.id);
+}, [id, selectedTeam, supabaseClient, user]);
+
+const handleUpdateTeam = () => {
+  toast.promise(updateTeam(),{
+    loading: 'Updating...',
+    success: 'Updated!',
+    error: (err) => `Error: ${err.toString()}`
+  })
+}
 
   useEffect(() => {
     setTeamToAnalyze(selectedTeam.map(pokemon => pokemon.pokemon));
@@ -103,13 +140,15 @@ const PokemonTeamBuilder = () => {
           >
             Submit as new Team
           </Button>
+        { id &&
           <Button
-            onClick={handleSubmitTeam}
+            onClick={handleUpdateTeam}
             disabled={selectedTeam.length < 1}
             secondary
           >
             Update Team
           </Button>
+        }
         </div>
       </div>
       {selectedTeam.length != 0 && <TeamAnalyzer team={teamToAnalyze}/>}

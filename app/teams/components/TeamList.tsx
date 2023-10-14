@@ -1,6 +1,6 @@
 "use client"
 
-import useTeamsByUser from '@/hooks/useTeamsByUser'
+import { DBTeam, useTeamsByUser } from '@/context/useTeamsByUser'
 import { useUser } from '@/hooks/useUser'
 
 import { motion } from 'framer-motion'
@@ -8,21 +8,25 @@ import React, { useEffect } from 'react'
 import TeamItem from './TeamItem'
 import { useRouter } from 'next/navigation'
 import TeamModal from '@/components/Modals/TeamModal'
+import { Dna } from 'react-loader-spinner'
+import useTeamModal from '@/hooks/useTeamModal'
 
 const TeamList = () => {
-  const { user, isLoading } = useUser();
-  const { teams, loading, error } = useTeamsByUser(user?.id);
-  const router = useRouter();
+  const { teams, loading, error } = useTeamsByUser();
+  const teamModal = useTeamModal();
 
-  useEffect(() => {
-    if (!isLoading && !user) {
-        router.replace('/');
-    }
-}, [isLoading, user, router]);
+  const handleClick = (team: DBTeam) => {
+    teamModal.setSelectedTeam(team);
+    teamModal.onOpen();
+  }
   
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='flex justify-center items-center'>
+        <Dna width={128} height={128}/>
+      </div>
+    )
   }
 
   if (error) {
@@ -44,7 +48,7 @@ const TeamList = () => {
     <div className='flex-col space-y-10'>
     <div className='flex flex-col sm:flex-row flex-wrap gap-10'>
       {teams!.map((team, index) => (
-      <TeamItem key={index} team={team} />
+      <TeamItem key={index} team={team} onClick={handleClick}/>
       ))}
     </div>
     </div>

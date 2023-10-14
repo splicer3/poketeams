@@ -1,6 +1,6 @@
 import { usePokedex } from '@/context/usePokedex';
 import useTeamPokemonPreview from '@/hooks/useTeamPokemonPreview';
-import { DBTeamPokemon } from '@/hooks/useTeamsByUser';
+import { DBTeamPokemon } from '@/context/useTeamsByUser';
 import { processName } from '@/lib/utils';
 import Image from 'next/image';
 import React from 'react'
