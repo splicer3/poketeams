@@ -5,7 +5,7 @@ export const links = [
     },
     {
       name: "Teambuilder",
-      url: "/teambuilder",
+      url: "/teams/teambuilder",
     },
     {
       name: "Your teams",

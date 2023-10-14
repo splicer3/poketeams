@@ -70,7 +70,7 @@ const PokemonTeamBuilder = () => {
                   bg-gray-200 dark:bg-gray-600
                   hover:bg-gradient-to-b from-[${typeColors[pokemon.pokemon.types[0].type.name] + "80"}]
                   px-4 py-2 rounded-xl cursor-pointer shadow-lg hover:shadow-xl hover:scale-105 transition`,
-                  pokemon.pokemon.types[1] ? `to-[${typeColors[pokemon.pokemon.types[1].type.name] + "80"}]` : "to-gray-200"
+                  pokemon.pokemon.types[1] ? `to-[${typeColors[pokemon.pokemon.types[1].type.name] + "80"}]` : "to-gray-200 dark:to-gray-600"
                   )}
                   onClick={() => {
                     setSelectedPokemon(pokemon.pokemon.species.name);

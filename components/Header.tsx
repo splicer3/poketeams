@@ -4,12 +4,16 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Pokemon } from 'pokedex-promise-v2'
-import React, { useState } from 'react'
+import { usePathname } from 'next/navigation';
+import React, { useEffect } from 'react'
 
 
 const Header = () => {
-    const [activeSection, setActiveSection] = useState("Home");
+    const pathname = usePathname();
+    
+    useEffect(() => {
+        console.log(pathname);
+    }, [pathname])
   return (
         <header className="z-[99] relative">
             <motion.div 
@@ -87,14 +91,13 @@ const Header = () => {
                                 >
                                     <Link className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:hover:text-gray-300",
                                     {
-                                        "text-gray-950 dark:text-gray-200" : activeSection === link.name
+                                        "text-gray-950 dark:text-gray-200" : pathname === link.url
                                     }
                                         )}
                                         href={link.url}
-                                        onClick={() => setActiveSection(link.name)}
                                     >
                                         {link.name}
-                                        { activeSection === link.name &&
+                                        { pathname === link.url &&
                                         <motion.span
                                             className="bg-gray-100/70 dark:bg-gray-800/70 rounded-full absolute inset-0 -z-10"
                                             layoutId="activeSection"

@@ -60,7 +60,7 @@ const generationRanges = [
   { gen: 6, maxId: 721 },
   { gen: 7, maxId: 809 },
   { gen: 8, maxId: 905 },
-  { gen: 9, maxId: 1010 },
+  { gen: 9, maxId: 1017 },
 ];
 
 export const getGeneration = (id: number) => {
@@ -69,6 +69,5 @@ export const getGeneration = (id: number) => {
       return generationRanges[i].gen;
     }
   }
-  return 100; // For IDs greater than 1010, 100 is reserved for forms
 };
   

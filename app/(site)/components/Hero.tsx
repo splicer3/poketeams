@@ -25,6 +25,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeInOut", duration: 2}}
+        viewport={{ once: true }}
     >
       <h1 className='text-center text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r dark:from-white dark:to-gray-400 from-gray-800 to-gray-600 py-6'>
         Supercharge your team making abilities
@@ -36,7 +37,7 @@ const Hero = () => {
           </p>
           <div className='flex flex-col justify-center sm:flex-row gap-2 sm:gap-0'>
             {user ? 
-            <Button big onClick={() => router.push("/teambuilder")}>
+            <Button big onClick={() => router.push("/teams/teambuilder")}>
               Start building
             </Button>
               :
