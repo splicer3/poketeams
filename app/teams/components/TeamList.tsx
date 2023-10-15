@@ -33,7 +33,7 @@ const TeamList = () => {
     <>
       <TeamModal />
       <motion.section
-        className="flex-col cool-box justify-between px-6 items-center self-center w-[70%]"
+        className="flex flex-col cool-box justify-between px-6 items-center self-center w-[90%] sm:w-[70%]"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeInOut", duration: 2 }}
@@ -42,7 +42,7 @@ const TeamList = () => {
           Your teams
         </h1>
         <div className="flex flex-col lg:flex-row w-full justify-around items-center">
-          <div className="flex-col space-y-10">
+          <div className="flex flex-col space-y-10">
             <div className="flex flex-col sm:flex-row flex-wrap gap-10">
               {teams!.map((team, index) => (
                 <TeamItem key={index} team={team} onClick={handleClick} />
