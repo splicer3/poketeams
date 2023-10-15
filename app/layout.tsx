@@ -7,6 +7,7 @@ import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import Header from "@/components/Header";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

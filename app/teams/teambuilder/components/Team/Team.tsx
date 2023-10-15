@@ -10,7 +10,7 @@ import { usePokemon } from "@/context/usePokemon";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import TeamAnalyzer from "./TeamAnalyzer";
-import PokemonSprite from "../../../../../components/PokemonInfo/PokemonSprite";
+import PokemonSprite from "../PokemonInfo/PokemonSprite";
 import { formatTeamNames, processName, typeColors } from "@/lib/utils";
 import Button from "@/components/Button";
 import NewTeamModal from "../../../../../components/Modals/NewTeamModal";

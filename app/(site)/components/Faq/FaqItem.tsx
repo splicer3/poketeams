@@ -19,7 +19,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
           <span>{title}</span>
           <TbPokeball
             className={`${
-              open ? "rotate-180 transform" : ""
+              open ? "rotate-180 transform text-teal-600 dark:text-amber-600" : ""
             } h-5 w-5 transition text-teal-500 dark:text-amber-500`}
           />
         </Disclosure.Button>
@@ -31,7 +31,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500 dark:text-gray-400">
+          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500 dark:text-gray-300">
             {paragraph}
           </Disclosure.Panel>
         </Transition>
