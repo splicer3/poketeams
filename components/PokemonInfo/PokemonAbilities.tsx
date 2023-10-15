@@ -1,11 +1,17 @@
-"use client"
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { usePokedex } from '@/context/usePokedex';
-import { usePokemon } from '@/context/usePokemon';
-import PokeAPI from 'pokedex-promise-v2';
-import { Ability } from '@/types/types';
-import { clsx } from 'clsx';
-import { fetchAbilityDescription } from '@/lib/utils';
+"use client";
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { usePokedex } from "@/context/usePokedex";
+import { usePokemon } from "@/context/usePokemon";
+import PokeAPI from "pokedex-promise-v2";
+import { Ability } from "@/types/types";
+import { clsx } from "clsx";
+import { fetchAbilityDescription } from "@/lib/utils";
 
 const PokemonAbilities = () => {
   const P = usePokedex();
@@ -19,9 +25,12 @@ const PokemonAbilities = () => {
       const fetchedAbilities = await Promise.all(
         pokemonData!.abilities.map(async (item: PokeAPI.AbilityElement) => ({
           ability: item.ability.name,
-          abilityDescription: await fetchAbilityDescription(item.ability.name, P),
+          abilityDescription: await fetchAbilityDescription(
+            item.ability.name,
+            P,
+          ),
           isHidden: item.is_hidden,
-        }))
+        })),
       );
       setAbilities(fetchedAbilities);
       setIsLoading(false);
@@ -36,22 +45,29 @@ const PokemonAbilities = () => {
       <h2 className="font-medium text-center sm:text-start">
         {abilities[1] ? "Abilities" : "Ability"}
       </h2>
-    { !isLoading ? 
-    <>
-      {abilities.map((item, i) => (
-        <div key={i} className="w-64">
-          <h2
-            className={clsx('text-gray-800', 'dark:text-gray-400', 'capitalize', item.isHidden && 'underline')}
-          >
-            {item.ability}
-          </h2>
-          <p className="text-gray-600 dark:text-gray-500">{item.abilityDescription}</p>
-        </div>
-      ))}
-      </>
-      :
-      <span className="placeholder w-64 h-64 rounded-2xl"></span>
-    }
+      {!isLoading ? (
+        <>
+          {abilities.map((item, i) => (
+            <div key={i} className="w-64">
+              <h2
+                className={clsx(
+                  "text-gray-800",
+                  "dark:text-gray-400",
+                  "capitalize",
+                  item.isHidden && "underline",
+                )}
+              >
+                {item.ability}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-500">
+                {item.abilityDescription}
+              </p>
+            </div>
+          ))}
+        </>
+      ) : (
+        <span className="placeholder w-64 h-64 rounded-2xl"></span>
+      )}
     </div>
   );
 };

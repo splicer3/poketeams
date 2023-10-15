@@ -1,5 +1,5 @@
-import React, { ReactNode, createContext, useContext, useState } from 'react';
-import { Pokemon } from 'pokedex-promise-v2';
+import React, { ReactNode, createContext, useContext, useState } from "react";
+import { Pokemon } from "pokedex-promise-v2";
 
 export interface TeamPokemon {
   pokemon: Pokemon;
@@ -16,12 +16,12 @@ interface TeamContextProps {
 const TeamContext = createContext<TeamContextProps | undefined>(undefined);
 
 type TeamProviderProps = {
-    children: ReactNode;
-  };
+  children: ReactNode;
+};
 
 export const TeamProvider: React.FC<TeamProviderProps> = ({ children }) => {
   const [selectedTeam, setSelectedTeam] = useState<TeamPokemon[]>([]);
-  const [id, setId] = useState<number | undefined>(undefined)
+  const [id, setId] = useState<number | undefined>(undefined);
 
   return (
     <TeamContext.Provider value={{ selectedTeam, setSelectedTeam, id, setId }}>
@@ -33,7 +33,7 @@ export const TeamProvider: React.FC<TeamProviderProps> = ({ children }) => {
 export const useTeam = () => {
   const context = useContext(TeamContext);
   if (context === undefined) {
-    throw new Error('useTeam must be used within a TeamProvider');
+    throw new Error("useTeam must be used within a TeamProvider");
   }
   return context;
 };

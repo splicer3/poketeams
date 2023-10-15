@@ -28,7 +28,12 @@ body {
 
 .placeholder {
   animation: loading 1.5s infinite alternate;
-  background: linear-gradient(90deg, transparent 25%, #f3f3f3 50%, transparent 75%);
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    #f3f3f3 50%,
+    transparent 75%
+  );
   background-size: 200% 100%;
   display: inline-block;
   text-align: left;
@@ -46,7 +51,7 @@ body {
 }
 
 .cool-box {
-  @apply bg-white bg-opacity-30 dark:bg-gray-800 dark:bg-opacity-80 rounded-xl shadow-lg
+  @apply bg-white bg-opacity-30 dark:bg-gray-800 dark:bg-opacity-80 rounded-xl shadow-lg;
 }
 
 .porygon {

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { createContext, useContext, useMemo } from 'react';
-import Pokedex from 'pokedex-promise-v2';
+import { createContext, useContext, useMemo } from "react";
+import Pokedex from "pokedex-promise-v2";
 
 const PokedexContext = createContext<Pokedex | undefined>(undefined);
 
 export function usePokedex() {
   const context = useContext(PokedexContext);
   if (!context) {
-    throw new Error('usePokedex must be used within a PokedexProvider');
+    throw new Error("usePokedex must be used within a PokedexProvider");
   }
   return context;
 }

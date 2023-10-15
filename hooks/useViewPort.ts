@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import useViewportStore from './useViewPortStore';
+import { useEffect } from "react";
+import useViewportStore from "./useViewPortStore";
 
 const useViewport = () => {
-  const setIsMobile = useViewportStore(state => state.setIsMobile);
+  const setIsMobile = useViewportStore((state) => state.setIsMobile);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -10,14 +10,14 @@ const useViewport = () => {
     };
 
     checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
+    window.addEventListener("resize", checkIsMobile);
 
     return () => {
-      window.removeEventListener('resize', checkIsMobile);
+      window.removeEventListener("resize", checkIsMobile);
     };
   }, [setIsMobile]);
 
-  return useViewportStore(state => state.isMobile);
+  return useViewportStore((state) => state.isMobile);
 };
 
 export default useViewport;

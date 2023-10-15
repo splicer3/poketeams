@@ -5,21 +5,21 @@ import AuthModal from "@/components/Modals/AuthModal";
 import { useEffect, useState } from "react";
 
 const ModalProvider = () => {
-    const [isMounted, setIsMounted] = useState(false);
-    
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
+  const [isMounted, setIsMounted] = useState(false);
 
-    if (!isMounted) {
-        return null;
-    }
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-    return ( 
-        <>
-            <AuthModal />
-        </>
-     );
-}
- 
+  if (!isMounted) {
+    return null;
+  }
+
+  return (
+    <>
+      <AuthModal />
+    </>
+  );
+};
+
 export default ModalProvider;

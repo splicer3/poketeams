@@ -1,17 +1,20 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { usePokemon } from '@/context/usePokemon';
-import Image from 'next/image';
-import { Dna } from 'react-loader-spinner';
+import React, { useEffect, useState } from "react";
+import { usePokemon } from "@/context/usePokemon";
+import Image from "next/image";
+import { Dna } from "react-loader-spinner";
 
 const PokemonImage = () => {
   const { pokemonData, isLoading } = usePokemon();
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
-    if (pokemonData && pokemonData.sprites.other['official-artwork'].front_default) {
-      setImageUrl(pokemonData.sprites.other['official-artwork'].front_default);
+    if (
+      pokemonData &&
+      pokemonData.sprites.other["official-artwork"].front_default
+    ) {
+      setImageUrl(pokemonData.sprites.other["official-artwork"].front_default);
     }
   }, [pokemonData]);
 
@@ -19,8 +22,11 @@ const PokemonImage = () => {
     <div className="flex flex-col items-center gap-4">
       {!isLoading && pokemonData ? (
         <Image
-        //@ts-ignore
-          src={imageUrl || pokemonData.sprites.other['official-artwork'].front_default}
+          //@ts-ignore
+          src={
+            imageUrl ||
+            pokemonData.sprites.other["official-artwork"].front_default
+          }
           alt={`Artwork of ${pokemonData.name}`}
           width={256}
           height={256}

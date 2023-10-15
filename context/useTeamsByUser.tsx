@@ -1,17 +1,23 @@
-import { User, useSupabaseClient } from '@supabase/auth-helpers-react';
-import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
+import { User, useSupabaseClient } from "@supabase/auth-helpers-react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 export interface DBTeamPokemon {
-    variety: number;
-    pokemon_url: string;
-    pokemon_name: string;
+  variety: number;
+  pokemon_url: string;
+  pokemon_name: string;
 }
 
 export interface DBTeam {
-    id: number;
-    pokemon: DBTeamPokemon[];
-    name: string;
-    description: string
+  id: number;
+  pokemon: DBTeamPokemon[];
+  name: string;
+  description: string;
 }
 
 type DBTeamArray = DBTeam[];
@@ -21,18 +27,19 @@ type TeamsByUserProps = {
   setTeams: (teams: DBTeam[]) => void;
   loading: boolean;
   error: string | null;
-}
+};
 
-
-const TeamsByUserContext = createContext<TeamsByUserProps | undefined>(undefined);
+const TeamsByUserContext = createContext<TeamsByUserProps | undefined>(
+  undefined,
+);
 
 export function useTeamsByUser(): TeamsByUserProps {
   const context = useContext(TeamsByUserContext);
   if (!context) {
-    throw new Error('useTeamsByUser must be used within a TeamsByUserProvider');
+    throw new Error("useTeamsByUser must be used within a TeamsByUserProvider");
   }
   return context;
-};
+}
 
 interface TeamsByUserProviderProps {
   children: ReactNode;
@@ -41,7 +48,7 @@ interface TeamsByUserProviderProps {
 
 export function TeamsByUserProvider({
   children,
-  user
+  user,
 }: TeamsByUserProviderProps) {
   const supabase = useSupabaseClient();
   const [teams, setTeams] = useState<DBTeam[]>();
@@ -52,9 +59,9 @@ export function TeamsByUserProvider({
     const fetchTeams = async (user_id: string | undefined) => {
       try {
         const { data, error } = await supabase
-          .from('teams')
+          .from("teams")
           .select(`id, pokemon, name, description`)
-          .eq('user_id', user_id);
+          .eq("user_id", user_id);
 
         if (error) {
           setError(error.message);
@@ -76,5 +83,5 @@ export function TeamsByUserProvider({
     <TeamsByUserContext.Provider value={{ teams, setTeams, loading, error }}>
       {children}
     </TeamsByUserContext.Provider>
-  )
+  );
 }

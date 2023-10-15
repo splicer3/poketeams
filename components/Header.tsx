@@ -1,23 +1,22 @@
-"use client"
-import { links } from '@/lib/data';
-import clsx from 'clsx';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React, { useEffect } from 'react'
-
+"use client";
+import { links } from "@/lib/data";
+import clsx from "clsx";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { useEffect } from "react";
 
 const Header = () => {
-    const pathname = usePathname();
-    
-    useEffect(() => {
-        console.log(pathname);
-    }, [pathname])
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log(pathname);
+  }, [pathname]);
   return (
-        <header className="z-[99] relative">
-            <motion.div 
-            className="
+    <header className="z-[99] relative">
+      <motion.div
+        className="
                     fixed
                     top-0
                     left-1/2
@@ -37,11 +36,11 @@ const Header = () => {
                     sm:w-[40rem]
                     sm:rounded-full
                     "
-            initial={{ y: -100, x:"-50%", opacity: 0}}
-            animate={{ y: 0, x:"-50%", opacity: 1}}
-            >
-            </motion.div>
-            <nav className="
+        initial={{ y: -100, x: "-50%", opacity: 0 }}
+        animate={{ y: 0, x: "-50%", opacity: 1 }}
+      ></motion.div>
+      <nav
+        className="
                             flex
                             flex-col
                             items-center
@@ -59,16 +58,27 @@ const Header = () => {
                             sm:top-[1.7rem]
                             sm:h-[initial]
                             sm:py-0
-                            ">
-                        <motion.div
-                            className='flex gap-2'
-                            initial={{ y: -100, opacity: 0}}
-                            animate={{ y: 0, opacity: 1}}
-                        >
-                        <Image src={"https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"} alt='Pokeball' width={40} height={40}/>
-                        <h1 className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PokeTeams</h1>
-                        </motion.div>
-                        <ul className="
+                            "
+      >
+        <motion.div
+          className="flex gap-2"
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          <Image
+            src={
+              "https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
+            }
+            alt="Pokeball"
+            width={40}
+            height={40}
+          />
+          <h1 className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            PokeTeams
+          </h1>
+        </motion.div>
+        <ul
+          className="
                                     flex
                                     w-[22rem]
                                     flex-wrap
@@ -81,42 +91,43 @@ const Header = () => {
                                     sm:w-[initial]
                                     sm:flex-nowrap
                                     sm:gap-5
-                                    ">
-                        {
-                            links.map((link) => (
-                                <motion.li className="h-3/4 flex items-center justify-center relative"
-                                    key={link.url}
-                                    initial={{ y: -100, opacity: 0}}
-                                    animate={{ y: 0, opacity: 1}}
-                                >
-                                    <Link className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:hover:text-gray-300",
-                                    {
-                                        "text-gray-950 dark:text-gray-200" : pathname === link.url
-                                    }
-                                        )}
-                                        href={link.url}
-                                    >
-                                        {link.name}
-                                        { pathname === link.url &&
-                                        <motion.span
-                                            className="bg-gray-100/70 dark:bg-gray-800/70 rounded-full absolute inset-0 -z-10"
-                                            layoutId="activeSection"
-                                            transition={{
-                                                type: "spring",
-                                                stiffness: 380,
-                                                damping: 30,
-                                            }}
-                                        >
-                                        </motion.span>
-                                        }
-                                    </Link>
-                                </motion.li>
-                            ))
-                        }
-                    </ul>
-            </nav>
-        </header>
-  )
-}
+                                    "
+        >
+          {links.map((link) => (
+            <motion.li
+              className="h-3/4 flex items-center justify-center relative"
+              key={link.url}
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+            >
+              <Link
+                className={clsx(
+                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:hover:text-gray-300",
+                  {
+                    "text-gray-950 dark:text-gray-200": pathname === link.url,
+                  },
+                )}
+                href={link.url}
+              >
+                {link.name}
+                {pathname === link.url && (
+                  <motion.span
+                    className="bg-gray-100/70 dark:bg-gray-800/70 rounded-full absolute inset-0 -z-10"
+                    layoutId="activeSection"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  ></motion.span>
+                )}
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
