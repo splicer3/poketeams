@@ -34,7 +34,7 @@ const Hero = () => {
         <div className="flex-col space-y-10">
           <p className="text-center font-medium text-xl sm:text-2xl max-w-lg">
             PokeTeams is a website that allows you to create, save and edit your
-            Pokemon teams while checking for potential weak points in them.
+            Pokémon teams while checking for potential weak points in them.
           </p>
           <div className="flex flex-col justify-center sm:flex-row gap-2 sm:gap-0">
             {user ? (
@@ -46,7 +46,7 @@ const Hero = () => {
                 <Button big onClick={handleLogIn}>
                   Log In
                 </Button>
-                <Button secondary onClick={() => router.push("/teambuilder")}>
+                <Button secondary onClick={() => router.push("/teams/teambuilder")}>
                   Start building
                 </Button>
               </>

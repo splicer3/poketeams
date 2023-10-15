@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-gradient-to-b from-gray-100 to-gray-200 relative dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-600 text-zinc-800 dark:text-zinc-100 dark:text-opacity-90 h-full`}
+        className={`${inter.className} bg-gradient-to-b from-gray-100 to-gray-200 relative dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-600 text-zinc-800 dark:text-zinc-100 dark:text-opacity-90  min-h-screen`}
       >
         <SupabaseProvider>
           <UserProvider>
