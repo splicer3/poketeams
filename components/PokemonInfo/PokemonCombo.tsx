@@ -15,6 +15,7 @@ import useDebounce from "@/hooks/useDebounce";
 const PokemonCombo = () => {
   const P = usePokedex();
   const [pokemonList, setPokemonList] = useState([""]);
+  const [filteredPokemon, setFilteredPokemon] = useState([""]);
   const { selectedPokemon, setSelectedPokemon, pokemonData } = usePokemon();
   const [selectedGeneration, setSelectedGeneration] = useState(0);
   const [query, setQuery] = useState("");
@@ -40,16 +41,23 @@ const PokemonCombo = () => {
 
   const debouncedQuery = useDebounce(query, 300);
 
-  const filteredPokemon =
-    debouncedQuery === ""
-      ? pokemonList
-      : pokemonList.filter((pokemon) =>
-          pokemon.toLowerCase().startsWith(query.toLowerCase()),
-        );
+  useEffect(() => {
+    const filteredPokemon =
+      debouncedQuery === ""
+        ? pokemonList
+        : pokemonList.filter((pokemon) =>
+            pokemon.toLowerCase().startsWith(debouncedQuery.toLowerCase()),
+          );
+    setFilteredPokemon(filteredPokemon);
+  }, [debouncedQuery, pokemonList]);
 
-  const handleGenerationChange = useCallback((newGeneration: number) => {
-    setSelectedGeneration(newGeneration);
-  }, []);
+  const handleGenerationChange = useCallback(
+    (newGeneration: number) => {
+      setSelectedGeneration(newGeneration);
+      setQuery(selectedPokemon);
+    },
+    [selectedPokemon],
+  );
 
   return (
     <div className="relative flex flex-col place-items-center px-10">

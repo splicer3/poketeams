@@ -1,3 +1,4 @@
+import { TeamPokemon } from "@/context/useTeam";
 import PokeAPI from "pokedex-promise-v2";
 
 export const typeColors: { [key: string]: string } = {
@@ -81,6 +82,13 @@ export function processName(str: string): string {
       return str;
     }
   }
+}
+
+export function formatTeamNames(team: TeamPokemon[]): string {
+  const formattedNames = team
+    .map((pokemon) => pokemon.pokemon.name)
+    .join("\n\n");
+  return formattedNames;
 }
 
 const generationRanges = [

@@ -11,7 +11,7 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import TeamAnalyzer from "./TeamAnalyzer";
 import PokemonSprite from "../../../../../components/PokemonInfo/PokemonSprite";
-import { processName, typeColors } from "@/lib/utils";
+import { formatTeamNames, processName, typeColors } from "@/lib/utils";
 import Button from "@/components/Button";
 import NewTeamModal from "../../../../../components/Modals/NewTeamModal";
 import useNewTeamModal from "@/hooks/useNewTeamModal";
@@ -96,6 +96,26 @@ const PokemonTeamBuilder = () => {
     });
   };
 
+  const copyToClipboard = async () => {
+    await navigator.clipboard.writeText(formatTeamNames(selectedTeam));
+  };
+
+  const handleShowdownCopy = () => {
+    toast
+      .promise(copyToClipboard(), {
+        loading: "Copying to clipboard...",
+        success: "Copied to cliboard!",
+        error: "Could not copy to clipboard",
+      })
+      .then(() => {
+        setTimeout(
+          () => window.open("https://play.pokemonshowdown.com/teambuilder"),
+          1500,
+        );
+      })
+      .catch((error) => {});
+  };
+
   useEffect(() => {
     setTeamToAnalyze(selectedTeam.map((pokemon) => pokemon.pokemon));
   }, [selectedTeam]);
@@ -165,6 +185,7 @@ const PokemonTeamBuilder = () => {
             <Button
               onClick={handleSubmitTeam}
               disabled={selectedTeam.length < 1}
+              confirm
             >
               Submit as new Team
             </Button>
@@ -172,11 +193,16 @@ const PokemonTeamBuilder = () => {
               <Button
                 onClick={handleUpdateTeam}
                 disabled={selectedTeam.length < 1}
-                secondary
               >
                 Update Team
               </Button>
             )}
+            <Button
+              onClick={handleShowdownCopy}
+              disabled={selectedTeam.length < 1}
+            >
+              Copy in Showdown format
+            </Button>
           </div>
         </div>
         {selectedTeam.length != 0 && <TeamAnalyzer team={teamToAnalyze} />}

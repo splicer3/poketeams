@@ -1,12 +1,10 @@
 "use client";
 
 import { DBTeam, useTeamsByUser } from "@/context/useTeamsByUser";
-import { useUser } from "@/hooks/useUser";
 
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
+import React from "react";
 import TeamItem from "./TeamItem";
-import { useRouter } from "next/navigation";
 import TeamModal from "@/components/Modals/TeamModal";
 import { Dna } from "react-loader-spinner";
 import useTeamModal from "@/hooks/useTeamModal";
