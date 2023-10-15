@@ -46,7 +46,10 @@ const Hero = () => {
                 <Button big onClick={handleLogIn}>
                   Log In
                 </Button>
-                <Button secondary onClick={() => router.push("/teams/teambuilder")}>
+                <Button
+                  secondary
+                  onClick={() => router.push("/teams/teambuilder")}
+                >
                   Start building
                 </Button>
               </>

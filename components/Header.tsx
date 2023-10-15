@@ -20,7 +20,6 @@ const Header = () => {
     }
   };
 
-
   useEffect(() => {
     console.log(pathname);
   }, [pathname]);
@@ -108,68 +107,71 @@ const Header = () => {
             if (link.url === "/teams" && !user) {
               return (
                 <motion.li
-                className="h-3/4 flex items-center justify-center relative"
-                key={link.url}
-                initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-              >
-                <button
-                  className={clsx(
-                    "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:hover:text-gray-300",
-                    {
-                      "text-gray-950 dark:text-gray-200": pathname === link.url,
-                    },
-                  )}
-                  onClick={handleLogIn}
+                  className="h-3/4 flex items-center justify-center relative"
+                  key={link.url}
+                  initial={{ y: -100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                 >
-                  Log in
-                  {pathname === link.url && (
-                    <motion.span
-                      className="bg-gray-100/70 dark:bg-gray-800/70 rounded-full absolute inset-0 -z-10"
-                      layoutId="activeSection"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    ></motion.span>
-                  )}
-                </button>
-              </motion.li>
-              )
+                  <button
+                    className={clsx(
+                      "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:hover:text-gray-300",
+                      {
+                        "text-gray-950 dark:text-gray-200":
+                          pathname === link.url,
+                      },
+                    )}
+                    onClick={handleLogIn}
+                  >
+                    Log in
+                    {pathname === link.url && (
+                      <motion.span
+                        className="bg-gray-100/70 dark:bg-gray-800/70 rounded-full absolute inset-0 -z-10"
+                        layoutId="activeSection"
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
+                      ></motion.span>
+                    )}
+                  </button>
+                </motion.li>
+              );
+            } else {
+              return (
+                <motion.li
+                  className="h-3/4 flex items-center justify-center relative"
+                  key={link.url}
+                  initial={{ y: -100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                >
+                  <Link
+                    className={clsx(
+                      "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:hover:text-gray-300",
+                      {
+                        "text-gray-950 dark:text-gray-200":
+                          pathname === link.url,
+                      },
+                    )}
+                    href={link.url}
+                  >
+                    {link.name}
+                    {pathname === link.url && (
+                      <motion.span
+                        className="bg-gray-100/70 dark:bg-gray-800/70 rounded-full absolute inset-0 -z-10"
+                        layoutId="activeSection"
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
+                      ></motion.span>
+                    )}
+                  </Link>
+                </motion.li>
+              );
             }
-            else {
-            return(
-            <motion.li
-              className="h-3/4 flex items-center justify-center relative"
-              key={link.url}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-            >
-              <Link
-                className={clsx(
-                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:hover:text-gray-300",
-                  {
-                    "text-gray-950 dark:text-gray-200": pathname === link.url,
-                  },
-                )}
-                href={link.url}
-              >
-                {link.name}
-                {pathname === link.url && (
-                  <motion.span
-                    className="bg-gray-100/70 dark:bg-gray-800/70 rounded-full absolute inset-0 -z-10"
-                    layoutId="activeSection"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  ></motion.span>
-                )}
-              </Link>
-            </motion.li>
-        )}})}
+          })}
         </ul>
       </nav>
     </header>
