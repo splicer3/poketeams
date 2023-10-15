@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <motion.section
-      className="flex-col cool-box justify-between px-6 pb-6 items-center self-center w-[70%]"
+      className="flex-col cool-box justify-between px-6 pb-6 items-center self-center w-[90%] sm:w-[70%]"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ease: "easeInOut", duration: 2 }}

@@ -9,7 +9,7 @@ import { faqData } from "@/lib/data";
 const Faq = () => {
   return (
     <motion.div
-      className="mx-auto w-full max-w-md rounded-2xl cool-box px-10 py-6"
+      className="mx-auto w-full max-w-[90%] sm:max-w-md rounded-2xl cool-box px-10 py-6"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ease: "easeInOut", duration: 2 }}
