@@ -181,7 +181,7 @@ const PokemonTeamBuilder = () => {
               ))}
             </div>
           </div>
-          <div className="flex w-full justify-around gap-4">
+          <div className="flex flex-col sm:flex-row w-full justify-around gap-4">
             <Button
               onClick={handleSubmitTeam}
               disabled={selectedTeam.length < 1}

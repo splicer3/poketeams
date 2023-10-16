@@ -91,7 +91,7 @@ const NewTeamModal = () => {
           disabled={isLoading}
           {...register("name", { required: true })}
           className={clsx(
-            `w-full p-2 pl-4 pr-10 capitalize rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-lg`,
+            `w-full p-2 pl-4 pr-10 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-lg`,
             pokemonData?.types[0].type
               ? `focus:ring-[${typeColors[pokemonData.types[0].type.name]}]`
               : "focus:ring-teal-500",
@@ -103,7 +103,7 @@ const NewTeamModal = () => {
           disabled={isLoading}
           {...register("desc", { required: true })}
           className={clsx(
-            `w-full p-2 pl-4 pr-10 capitalize rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-lg`,
+            `w-full p-2 pl-4 pr-10 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:border-transparent focus:shadow-lg`,
             pokemonData?.types[0].type
               ? `focus:ring-[${typeColors[pokemonData.types[0].type.name]}]`
               : "focus:ring-teal-500",
