@@ -31,7 +31,7 @@ export default function Home() {
             </Button>
           </div>
         )}
-        <div className="flex flex-col pt-0 sm:pt-20 sm:flex-row gap-16 items-center justify-center">
+        <div className="flex flex-col pt-0 sm:pt-20 sm:flex-row gap-16 items-center justify-center w-[90%]">
           <div className="flex flex-col items-center gap-4 px-6 py-10 cool-box">
             <PokemonImage />
             <PokemonCombo />
