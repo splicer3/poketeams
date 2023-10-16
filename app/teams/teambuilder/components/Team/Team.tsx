@@ -123,7 +123,7 @@ const PokemonTeamBuilder = () => {
   return (
     <>
       <NewTeamModal />
-      <div className="flex flex-col 2xl:flex-row justify-center gap-10 2xl:gap-20 dark:text-white p-6 rounded-xl cool-box">
+      <div className="flex flex-col 2xl:flex-row justify-center gap-10 2xl:gap-20 w-[90%] dark:text-white p-6 rounded-xl cool-box">
         <div className="flex flex-col items-center gap-8">
           <div className="flex flex-col items-center">
             <h2 className="font-medium">Current Team</h2>

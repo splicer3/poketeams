@@ -41,7 +41,7 @@ const PokemonAbilities = () => {
   }, [pokemonData, P]);
 
   return (
-    <div className="flex flex-col gap-4 cool-box p-6 w-full">
+    <div className="flex flex-col justify-center items-center sm:items-start gap-4 cool-box p-6 w-full">
       <h2 className="font-medium text-center sm:text-start">
         {abilities[1] ? "Abilities" : "Ability"}
       </h2>
@@ -54,12 +54,14 @@ const PokemonAbilities = () => {
                   "text-gray-800",
                   "dark:text-gray-400",
                   "capitalize",
+                  "text-center",
+                  "sm:text-start",
                   item.isHidden && "underline",
                 )}
               >
                 {item.ability}
               </h2>
-              <p className="text-gray-600 dark:text-gray-500">
+              <p className="text-gray-600 dark:text-gray-500 text-center sm:text-start">
                 {item.abilityDescription}
               </p>
             </div>

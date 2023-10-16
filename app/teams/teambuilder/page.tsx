@@ -31,14 +31,14 @@ export default function Home() {
             </Button>
           </div>
         )}
-        <div className="flex flex-col pt-0 sm:pt-20 sm:flex-row gap-16 items-center justify-center w-[90%]">
-          <div className="flex flex-col items-center gap-4 px-6 py-10 cool-box">
+        <div className="flex flex-col pt-0 sm:pt-20 sm:flex-row gap-16 items-center justify-center">
+          <div className="flex flex-col items-center gap-4 px-6 py-10 cool-box w-[90%] sm:w-auto">
             <PokemonImage />
             <PokemonCombo />
             <PokemonType />
           </div>
           {(!isMobile || !showTeam) && (
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-10 w-[90%] sm:w-auto">
               <PokemonAbilities />
               <PokemonStats />
             </div>
