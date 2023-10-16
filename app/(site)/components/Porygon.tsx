@@ -22,6 +22,13 @@ const Porygon = () => {
       fill: fill,
       pathLength: 1,
     }),
+    whileDrag: ({
+      cursor: "grabbing",
+      scale: 1.1,
+      outline: "none",
+      border: "none",
+      boxShadow: "none",
+    })
   };
 
   return (
@@ -31,7 +38,7 @@ const Porygon = () => {
       width="397.5px"
       height="354px"
       viewBox="0.0 0.05 264.75 235.95"
-      className={clsx("w-[80%] h-[80%]", {
+      className={clsx("w-[80%] h-[80%] touch-none", {
         "stroke-gray-600 dark:stroke-gray-100 overflow-visible porygon":
           !clicked,
       })}
@@ -56,6 +63,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -86,6 +94,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -116,6 +125,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -146,6 +156,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -176,6 +187,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -206,6 +218,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -236,6 +249,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -266,6 +280,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -296,6 +311,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -326,6 +342,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -356,6 +373,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -386,6 +404,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -416,6 +435,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -446,6 +466,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -476,6 +497,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -506,6 +528,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -536,6 +559,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -566,6 +590,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -596,6 +621,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -626,6 +652,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -656,6 +683,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -686,6 +714,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -716,6 +745,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -746,6 +776,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -776,6 +807,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -806,6 +838,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -836,6 +869,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -866,6 +900,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -896,6 +931,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -926,6 +962,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -956,6 +993,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -986,6 +1024,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -1016,6 +1055,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -1046,6 +1086,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -1076,6 +1117,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -1106,6 +1148,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
@@ -1136,6 +1179,7 @@ const Porygon = () => {
           bottom: 50,
           left: -50,
         }}
+        whileDrag={"whileDrag"}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
         whileTap={{
