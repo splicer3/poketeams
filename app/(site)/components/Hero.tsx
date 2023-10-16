@@ -31,12 +31,12 @@ const Hero = () => {
         Supercharge your team making abilities
       </h1>
       <div className="flex flex-col lg:flex-row w-full justify-around items-center">
-        <div className="flex-col space-y-10">
+        <div className="flex flex-col gap-10">
           <p className="text-center font-medium text-xl sm:text-2xl max-w-lg">
             PokeTeams is a website that allows you to create, save and edit your
             Pokémon teams while checking for potential weak points in them.
           </p>
-          <div className="flex flex-col justify-center sm:flex-row gap-2 sm:gap-0">
+          <div className="flex flex-col justify-center -mt-5 sm:flex-row gap-2 sm:gap-0">
             {user ? (
               <Button big onClick={() => router.push("/teams/teambuilder")}>
                 Start building
@@ -56,7 +56,7 @@ const Hero = () => {
             )}
           </div>
         </div>
-        <div className="flex justify-center py-5 lg:pb-5 lg:pt-0">
+        <div className="flex justify-center pb-10 pt-10 lg:pb-5 lg:pt-0">
           <Porygon />
         </div>
       </div>
