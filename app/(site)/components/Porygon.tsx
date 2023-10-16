@@ -31,7 +31,7 @@ const Porygon = () => {
       width="397.5px"
       height="354px"
       viewBox="0.0 0.05 264.75 235.95"
-      className={clsx("w-1/2 lg:w-[80%] h-[80%]", {
+      className={clsx("w-[80%] h-[80%]", {
         "stroke-gray-600 dark:stroke-gray-100 overflow-visible porygon":
           !clicked,
       })}
@@ -51,10 +51,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -81,10 +81,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -111,10 +111,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -141,10 +141,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -171,10 +171,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -201,10 +201,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -231,10 +231,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -261,10 +261,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -291,10 +291,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -321,10 +321,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -351,10 +351,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -381,10 +381,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -411,10 +411,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -441,10 +441,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -471,10 +471,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -501,10 +501,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -531,10 +531,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -561,10 +561,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -591,10 +591,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -621,10 +621,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -651,10 +651,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -681,10 +681,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -711,10 +711,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -741,10 +741,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -771,10 +771,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -801,10 +801,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -831,10 +831,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -861,10 +861,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -891,10 +891,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -921,10 +921,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -951,10 +951,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -981,10 +981,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -1011,10 +1011,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -1041,10 +1041,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -1071,10 +1071,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -1101,10 +1101,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
@@ -1131,10 +1131,10 @@ const Porygon = () => {
         whileHover="hover"
         drag
         dragConstraints={{
-          top: -15,
-          right: 15,
-          bottom: 15,
-          left: -15,
+          top: -50,
+          right: 50,
+          bottom: 50,
+          left: -50,
         }}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragElastic={0.5}
