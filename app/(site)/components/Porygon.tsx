@@ -22,13 +22,13 @@ const Porygon = () => {
       fill: fill,
       pathLength: 1,
     }),
-    whileDrag: ({
+    whileDrag: {
       cursor: "grabbing",
       scale: 1.1,
       outline: "none",
       border: "none",
       boxShadow: "none",
-    })
+    },
   };
 
   return (

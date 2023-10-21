@@ -8,9 +8,10 @@ An advanced **Pokemon Team Builder** made from scratch using **Supabase**, **Nex
 
 ## How to run
 
-You will need to provide a `.env.local` containing your own **environment variables** to get this running. The environment variables are:  
+You will need to provide a `.env.local` containing your own **environment variables** to get this running. The environment variables are:
+
 - NEXT_PUBLIC_SUPABASE_URL
-- NEXT_PUBLIC_SUPABASE_ANON_KEY  
+- NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 Then `git clone` this repo, `npm install` and `npm run dev` to get it running on localhost:3000.  
 The Supabase keys can be retrieved from the relevant Supabase project dashboard.
@@ -19,13 +20,16 @@ The Supabase keys can be retrieved from the relevant Supabase project dashboard.
 
 **PokeTeams** leverages React and NextJS to provide a beautiful UI for a modern and fast teambuilding experience.
 Some notable features:
+
 - Weakness analysis for the whole team
-- One-click export to *Pokémon Showdown*
+- One-click export to _Pokémon Showdown_
 - Fully animated using Framer Motion
 - Account-based team storage and management
 
 ### Roadmap
+
 Ordered on priority:
+
 - IV, EV, Nature and Item features
 - Type recommendations based on analyzed weaknesses
 

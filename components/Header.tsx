@@ -77,14 +77,7 @@ const Header = () => {
           animate={{ y: 0, opacity: 1 }}
         >
           <Link href={"https://twitter.com/poke_teams"}>
-            <Image
-              src={
-                PokeTeamsIcon
-              }
-              alt="Pokeball"
-              width={40}
-              height={40}
-            />
+            <Image src={PokeTeamsIcon} alt="Pokeball" width={40} height={40} />
           </Link>
           <h1 className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             PokeTeams
