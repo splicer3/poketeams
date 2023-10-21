@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
+import PokeTeamsIcon from "@/public/icons/PokeTeamsIcon512.png";
 
 const Header = () => {
   const pathname = usePathname();
@@ -75,14 +76,16 @@ const Header = () => {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
         >
-          <Image
-            src={
-              "https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
-            }
-            alt="Pokeball"
-            width={40}
-            height={40}
-          />
+          <Link href={"https://twitter.com/poke_teams"}>
+            <Image
+              src={
+                PokeTeamsIcon
+              }
+              alt="Pokeball"
+              width={40}
+              height={40}
+            />
+          </Link>
           <h1 className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             PokeTeams
           </h1>
